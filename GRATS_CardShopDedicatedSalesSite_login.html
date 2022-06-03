@@ -40,20 +40,20 @@
     <img src="https://takaki-1st-re.github.io/1st-re.github.io/logo.png" alt="gratsLogoImage">
   </bottom>
   <script>
-  
+
     var errorInfo = document.getElementById("error_info");
     var output_svg = document.getElementById('color_list');
-    
+
     var loginInfoArray = [["1st-re", "password"],
                           ["admin", "password"],
                           ["administrator", "password"]];
-  
+
     function getCSV(){
-    
-    dataPath = "https://takaki-1st-re.github.io/1st-re.github.io/ShopLoginInfo.csv";
-    
+
+    dataPath = "ShopLoginInfo.csv";
+
     errorInfo.textContent = "error";
-    
+
      var request = new XMLHttpRequest();
 
      request.open("get", dataPath, true);
@@ -62,34 +62,34 @@
        var csvData = csvfile.responseText;
        errorInfo.textContent = "for example";
      }
- 
+
     }
-    
+
     function convertArray(data) {
-    
+
       errorInfo.textContent = "wtf";
       const dataArray = [];
       const dataString = data.split('n');
       for (let i = 0; i < dataString.length; i++) {
         dataArray[i] = dataString[i].split(',');
       }
-      
+
       loginInfoArray = dataArray;
-      
+
       outputElement.innerHTML = dataArray;
     }
-    
+
     function processLogin(){
-      
+
       var inputerShopId = document.getElementById("text_loginId");
       var inputerPassword = document.getElementById("text_password");
       var shopIdValue = inputerShopId.value;
       var passwordValue = inputerPassword.value;
-      
+
       var isScucessLogin = false;
-      
+
       errorInfo.textContent = passwordValue;
-      
+
       for (var i = 0; i < loginInfoArray.length; i++)
       {
         if (loginInfoArray[i][0] == shopIdValue)
@@ -106,7 +106,7 @@
           }
         }
       }
-      
+
       if (isScucessLogin)
       {
         location.replace("https://takaki-1st-re.github.io/1st-re.github.io/GRATS_CardShopDedicatedSalesSite_transaction.html" + "?id=" + shopIdValue);
@@ -115,18 +115,18 @@
       {
         errorInfo.textContent = "入力されたショップIDは存在しません。再入力のほど、よろしくお願いいたします。";
       }
-      
+
     }
-    
+
     function resetInputInfo(){
-      
+
       var inputerShopId = document.getElementById("text_loginId");
       var inputerPassword = document.getElementById("text_password");
       inputerShopId.value = "";
       inputerPassword.value = "";
     }
-    
-    
+
+
     // getCSV();
   </script>
 </html>
