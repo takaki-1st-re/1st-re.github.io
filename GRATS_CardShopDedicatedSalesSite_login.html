@@ -1,0 +1,132 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GRATS_CardShopDedicatedSalesSite</title>
+    <link href="styles/style_login.css" rel="stylesheet" type="text/css">
+  </head>
+  <div class="text-center">
+    <h1>GRATS!契約店舗専用注文ページ</h1>
+  </div>
+  <div class="l_parent">
+    <table border="0">
+      <tr>
+        <td align="right"><b> 店舗ID：</b></td>
+        <td><input type="text" id="text_loginId" size="30" maxlength="20"></td>
+      </tr>
+      <tr>
+        <td align="right"><b> パスワード：</b></td>
+        <td><input type="password" id="text_password" size="30" maxlength="20"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="button" value="ログイン" onclick="processLogin()">
+          <input type="button" value="リセット" onclick="resetInputInfo()">
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="text-center">
+    <h3 id="error_info"></h3>
+    <div id="color_list"></div>
+    <!--
+    <h3>※※※※※※※※※※※※※※※お知らせ※※※※※※※※※※※※※※※</h3>
+    <h2>新作・再販スリーブの発送は〇月〇日を予定しております。</h2>
+    <h2>新作スリーブの販売は〇月〇日からお願いいたします。</h2>
+    <h3>※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※</h3>
+    -->
+  </div>
+  <bottom>
+    <img src="image/logo.png" alt="gratsLogoImage">
+  </bottom>
+  <script>
+  
+    var errorInfo = document.getElementById("error_info");
+    var output_svg = document.getElementById('color_list');
+    
+    var loginInfoArray = [["1st-re", "password"],
+                          ["admin", "password"],
+                          ["administrator", "password"]];
+  
+    function getCSV(){
+    
+    dataPath = "ShopLoginInfo.csv";
+    
+    errorInfo.textContent = "error";
+    
+     var request = new XMLHttpRequest();
+
+     request.open("get", dataPath, true);
+     request.send(null);
+     request.onload = function(){
+       var csvData = csvfile.responseText;
+       errorInfo.textContent = "for example";
+     }
+ 
+    }
+    
+    function convertArray(data) {
+    
+      errorInfo.textContent = "wtf";
+      const dataArray = [];
+      const dataString = data.split('n');
+      for (let i = 0; i < dataString.length; i++) {
+        dataArray[i] = dataString[i].split(',');
+      }
+      
+      loginInfoArray = dataArray;
+      
+      outputElement.innerHTML = dataArray;
+    }
+    
+    function processLogin(){
+      
+      var inputerShopId = document.getElementById("text_loginId");
+      var inputerPassword = document.getElementById("text_password");
+      var shopIdValue = inputerShopId.value;
+      var passwordValue = inputerPassword.value;
+      
+      var isScucessLogin = false;
+      
+      errorInfo.textContent = passwordValue;
+      
+      for (var i = 0; i < loginInfoArray.length; i++)
+      {
+        if (loginInfoArray[i][0] == shopIdValue)
+        {
+          if (loginInfoArray[i][1] == passwordValue)
+          {
+            errorInfo.textContent = "専用ページへ移動いたします。少々お待ちください。";
+            isScucessLogin = true;
+          }
+          else
+          {
+            errorInfo.textContent = "入力されたパスワードが異なっています。再度入力のほど、よろしくお願いいたします。";
+            return;
+          }
+        }
+      }
+      
+      if (isScucessLogin)
+      {
+        location.replace("file:///C:/GRATS!%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/VisualStudio/html/GRATS_CardShopDedicatedSalesSite_transaction.html" + "?id=" + shopIdValue);
+      }
+      else
+      {
+        errorInfo.textContent = "入力されたショップIDは存在しません。再入力のほど、よろしくお願いいたします。";
+      }
+      
+    }
+    
+    function resetInputInfo(){
+      
+      var inputerShopId = document.getElementById("text_loginId");
+      var inputerPassword = document.getElementById("text_password");
+      inputerShopId.value = "";
+      inputerPassword.value = "";
+    }
+    
+    
+    // getCSV();
+  </script>
+</html>
