@@ -8,8 +8,8 @@ mb_internal_encoding("UTF-8");
 $to      = "takaki@1st-re.jp";
 $subject = "お問い合わせ自動送信";
 $message = "お問合わせメッセージが送信されました。;
-$headers = "From: timejudaedall.ooo@gmail.com"
+$headers = "From: timejudaedall.ooo@gmail.com";
 
 // メール送信実行
-mb_send_mail($to, $subject, $message);
+mb_send_mail($to, $subject, $message, $headers);
 ?>
