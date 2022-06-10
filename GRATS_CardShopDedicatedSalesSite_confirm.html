@@ -1,0 +1,131 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GRATS_CardShopDedicatedSalesSite</title>
+    <link href="https://takaki-1st-re.github.io/1st-re.github.io/style_login.css" rel="stylesheet" type="text/css">
+  </head>
+  <div class="text-center">
+    <h2>注文内容確認</h2>
+  </div>
+  <div class="l_parent">
+		<textarea id="text_order_details" cols="50" readonly rows="20"></textarea>
+	</div>
+  <div class="l_parent">
+    <table id="orderInfoTable">
+      <tr><th>商品名</th><th>個数</th><th>金額(税込)</th><th>合計</th></tr>
+    </table>
+  </div>
+  <div class="l_parent">
+    <table border="0">
+      <tr>
+        <td></td>
+        <td>
+          <input type="button" value="発注" onclick="procOrderByOwner()">
+          <input type="button" value="キャンセル" onclick="history.back()">
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="text-center">
+    <h3 id="error_info"></h3>
+    <div id="color_list"></div>
+  </div>
+  <bottom>
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/logo.png" alt="gratsLogoImage">
+  </bottom>
+  <script>
+
+    var orderDetails = document.getElementById("text_order_details");
+    var arrayOrderInfo = [];
+    var arrayGoodsTagInfo = [];
+    var loginShop
+    var arrayGoodsOrdersInfo = [["", "個数", "単価(税込)", "計"]];
+
+    function constractor()
+    {
+      let url = new URL(window.location.href);
+      let urlParams = url.searchParams;
+
+      var orderInfo = urlParams.get('order').slice(1).slice(0, -1);
+      var arrOrder = orderInfo.split(']');
+
+      for(var i = 0; i < arrOrder.length - 1; i++)
+      {
+        var element = arrOrder[i].slice(1);
+        arrayOrderInfo[i] = element.split(',');
+      }
+      orderDetails.value = arrayOrderInfo;
+
+      var csvFilePath = "https://takaki-1st-re.github.io/1st-re.github.io/GoodsTagInfo.csv";
+
+      var request = new XMLHttpRequest();
+
+      request.addEventListener('load', (event) => {
+        var arrReq = event.target.responseText.split('\n');
+
+        for(var i = 0; i < arrReq.length - 1; i++)
+        {
+          //","ごとに配列化
+          arrayGoodsTagInfo[i] = arrReq[i].split(',');
+        }
+        orderDetails.value = arrayGoodsTagInfo;
+
+        var orderGoodsName = "";
+        var orderGoodsId = "";
+        var orderGoodsNum = 0;
+        var strCreatersOrderInfo = "";
+        var strNormalOrderInfo = "";
+        var strOverSleeveOrderInfo = "";
+        var strDeckCaseOrderInfo = "";
+        var totalPrice = 0;
+
+        for(var i = 0; i < arrayOrderInfo.length; i++)
+        {
+          for(var j = 0; j < arrayGoodsTagInfo.length; j++)
+          {
+            if(arrayOrderInfo[i][0] == arrayGoodsTagInfo[j][0])
+            {
+              var arrayElement = [arrayGoodsTagInfo[j][1], arrayOrderInfo[i][1], arrayGoodsTagInfo[j][3].trim(), Number(arrayOrderInfo[i][1]) * Number(arrayGoodsTagInfo[j][3])]
+              orderDetails.value = "0";
+              arrayGoodsOrdersInfo.push(arrayElement);
+            }
+          }
+        }
+        orderDetails.value = arrayGoodsOrdersInfo[0];
+
+        var table = document.getElementById("orderInfoTable");
+
+        for(i = 0; i < arrayGoodsOrdersInfo.length; i++){
+          var row = document.createElement("tr");
+
+          for(j = 0; j < arrayGoodsOrdersInfo[0].length; j++){
+            var cell = document.createElement("td");
+
+            cell.innerHtml = arrayGoodsOrdersInfo[i][j];
+
+            row.appendChild(cell);
+          }
+
+          table.appendChild(row);
+        }
+
+      });
+
+      request.open("get", csvFilePath, true);
+      request.send();
+
+    }
+
+    function canselButtonEvent()
+    {
+      location.href = "https://takaki-1st-re.github.io/1st-re.github.io/GRATS_CardShopDedicatedSalesSite_transaction.html";
+    }
+
+    function procOrderByOwner()
+    {
+      orderDetails.value = "てすとだよ\nテストなの";
+    }
+
+    constractor();
+  </script>
+</html>

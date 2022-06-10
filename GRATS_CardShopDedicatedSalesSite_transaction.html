@@ -72,7 +72,7 @@
    <tr>
      <td></td>
      <td>
-       <input type="button" value="注文確認" onclick="sendShopOrderConfirmationMall()">
+       <input type="button" value="注文確認" onclick="transitionOrderConfirm()">
        <input type="button" value="リセット" onclick="resetAllOrderInfo()">
        <input type="button" value="キャンセル" onclick="cancelButtonEvent()">
      </td>
@@ -1817,12 +1817,10 @@
                                     "order_hypnotize", "order_good_fortune", "order_violet", "order_tamashi", "order_bet", "order_bee_and_butterfly",
                                     "order_thumbs_up", "order_nonfiction", "order_thorny", "order_check", "order_turquoise_blue",
                                     "order_news", "order_thx4u", "order_same_is_so_lame", "order_lock_on", "order_white",
-                                    "order_white", "order_camouflage", "order_gray", "order_magenta", "order_choice_is_yours",
+                                    "order_camouflage", "order_gray", "order_magenta", "order_choice_is_yours",
                                     "order_u_mad", "order_i_feel", "order_dice_holic", "order_glhf", "order_preying_on", "order_gby", "order_you_ready"];
 
-  var arrayShopInfo = [["1st-re", "株式会社ファーストアールイー"],
-                       ["admin", "管理者"],
-                       ["administrator", "サイト管理者"]]
+  var arrayShopInfo = [];
 
   var normalTotalNum = 0;
 
@@ -1851,23 +1849,43 @@
 
   var priceTotal = document.getElementById("total_price");
 
+  var shopId = "";
+
   function constractor(){
 
     // ログイン店舗情報取得
     let url = new URL(window.location.href);
     let urlParams = url.searchParams;
 
-    var shopId = urlParams.get('id');
+    shopId = urlParams.get('id');
 
     if (shopId != null)
     {
-      for (var i = 0; i < arrayShopInfo.length; i++)
-      {
-        if (arrayShopInfo[i][0] == shopId)
+      var csvFilePath = "https://takaki-1st-re.github.io/1st-re.github.io/ShopNameInfo.csv";
+
+      var request = new XMLHttpRequest();
+
+      request.addEventListener('load', (event) => {
+        var arr = event.target.responseText.split('\n');
+
+        for(var i = 0; i < arr.length - 1; i++)
         {
-          document.getElementById("shop_name").textContent = arrayShopInfo[i][1];
+          //","ごとに配列化
+          arrayShopInfo[i] = arr[i].split(',');
         }
-      }
+        document.getElementById("shop_name").textContent = arr;
+
+        for (var i = 0; i < arrayShopInfo.length; i++)
+        {
+          if (arrayShopInfo[i][0].trim() == shopId)
+          {
+            document.getElementById("shop_name").textContent = arrayShopInfo[i][1].trim();
+          }
+        }
+      });
+
+      request.open("get", csvFilePath, true);
+      request.send();
     }
 
     // ログイン日時取得
@@ -1881,14 +1899,12 @@
     var second = dayTime.getSeconds();
 
     if (hour < 10) hour = '0' + hour;
-	if (minute < 10) minute = '0' + minute;
-	if (second < 10) second = '0' + second;
+　	 if (minute < 10) minute = '0' + minute;
+　	 if (second < 10) second = '0' + second;
 
     var loginDate = document.getElementById("login_date");
 
     loginDate.textContent = year + "年" + month + "月" + day + "日 " + hour + ":" + minute + ":" + second;
-
-
   }
 
   function updateCreatersOrderInfo() {
@@ -2020,6 +2036,7 @@
     // ファインマットの注文情報をリセット
     numFineMat.textContent = 0;
     priceFineMat.textContent = 0;
+    inputerFimeMat.value = "";
 
     // 抗菌スリーブの注文情報をリセット
     numAntibacterial.textContent = 0;
@@ -2049,18 +2066,55 @@
     location.replace("https://takaki-1st-re.github.io/1st-re.github.io/GRATS_CardShopDedicatedSalesSite_login.html");
   }
 
-  function sendShopOrderConfirmationMall() {
+  function transitionOrderConfirm() {
 
-    var request = new XMLHttpRequest();
+    var strOrderInfo = "[";
 
-    request.open('GET', 'https://takaki-1st-re.github.io/1st-re.github.io/SendAnEmail.php', true);
-    request.responseType = 'json';
-    request.addEventListener('load', function(){
-      priceTotal.textContent = 300;
+    arrayCreatersInputerId.forEach(function(element){
+        var creatersInputerElements = document.getElementById(element);
+        if (Number(creatersInputerElements.value.replace(/[^0-9]/g, '')) != 0)
+        {
+          strOrderInfo = strOrderInfo + "[" + element + "," + creatersInputerElements.value + "]";
+        }
     });
-    priceTotal.textContent = 100;
-    request.send();
-    priceTotal.textContent = 200;
+
+    arrayNormalSleeveInputerId.forEach(function(element){
+        var normalInputeElements = document.getElementById(element);
+        if (Number(normalInputeElements.value.replace(/[^0-9]/g, '')) != 0)
+        {
+          strOrderInfo = strOrderInfo + "[" + element + "," + normalInputeElements.value + "]";
+        }
+    });
+
+    if (Number(inputerFimeMat.value.replace(/[^0-9]/g, '')) != 0)
+    {
+      strOrderInfo = strOrderInfo + "[order_fine_mat," + inputerFimeMat.value + "]";
+    }
+
+    if (Number(inputerAntibacterial.value.replace(/[^0-9]/g, '')) != 0)
+    {
+      strOrderInfo = strOrderInfo + "[order_antibacterial," + inputerAntibacterial.value + "]";
+    }
+
+    if (Number(inputerClear.value.replace(/[^0-9]/g, '')) != 0)
+    {
+      strOrderInfo = strOrderInfo + "[order_clear," + inputerClear.value + "]";
+    }
+
+    if (Number(inputerDeckCase.value.replace(/[^0-9]/g, '')) != 0)
+    {
+      strOrderInfo = strOrderInfo + "[order_deck_case," + inputerDeckCase.value + "]";
+    }
+
+    if (Number(inputerDeckCaseStrap.value.replace(/[^0-9]/g, '')) != 0)
+    {
+      strOrderInfo = strOrderInfo + "[order_deck_case_strap," + inputerDeckCaseStrap.value + "]";
+    }
+
+    strOrderInfo = strOrderInfo + "]";
+
+    location.href = "https://takaki-1st-re.github.io/1st-re.github.io/GRATS_CardShopDedicatedSalesSite_confirm.html" + "?id=" + shopId + "&order=" + strOrderInfo;
+
   }
 
   constractor();

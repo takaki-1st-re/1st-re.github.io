@@ -44,40 +44,29 @@
     var errorInfo = document.getElementById("error_info");
     var output_svg = document.getElementById('color_list');
 
-    var loginInfoArray = [["1st-re", "password"],
-                          ["admin", "password"],
-                          ["administrator", "password"]];
+    var loginInfoArray = [];
 
     function getCSV(){
 
-    dataPath = "ShopLoginInfo.csv";
+      dataPath = "https://takaki-1st-re.github.io/1st-re.github.io/ShopPasswordInfo.csv";
 
-    errorInfo.textContent = "error";
+      var request = new XMLHttpRequest();
 
-     var request = new XMLHttpRequest();
+      request.addEventListener('load', (event) => {
+        var arr = event.target.responseText.split('\n');
 
-     request.open("get", dataPath, true);
-     request.send(null);
-     request.onload = function(){
-       var csvData = csvfile.responseText;
-       errorInfo.textContent = "for example";
-     }
+        for(var i = 0; i < arr.length - 1; i++)
+        {
+          //","ごとに配列化
+          loginInfoArray[i] = arr[i].split(',');
+        }
+      });
 
+      request.open("get", dataPath, true);
+      request.send();
     }
 
-    function convertArray(data) {
 
-      errorInfo.textContent = "wtf";
-      const dataArray = [];
-      const dataString = data.split('n');
-      for (let i = 0; i < dataString.length; i++) {
-        dataArray[i] = dataString[i].split(',');
-      }
-
-      loginInfoArray = dataArray;
-
-      outputElement.innerHTML = dataArray;
-    }
 
     function processLogin(){
 
@@ -88,20 +77,18 @@
 
       var isScucessLogin = false;
 
-      errorInfo.textContent = passwordValue;
-
       for (var i = 0; i < loginInfoArray.length; i++)
       {
-        if (loginInfoArray[i][0] == shopIdValue)
+        if (loginInfoArray[i][0].trim() == shopIdValue)
         {
-          if (loginInfoArray[i][1] == passwordValue)
+          if (loginInfoArray[i][1].trim() == passwordValue)
           {
             errorInfo.textContent = "専用ページへ移動いたします。少々お待ちください。";
             isScucessLogin = true;
           }
           else
           {
-            errorInfo.textContent = "入力されたパスワードが異なっています。再度入力のほど、よろしくお願いいたします。";
+            errorInfo.textContent = "入力されたパスワードが異なっています。再入力のほど、よろしくお願いいたします。";
             return;
           }
         }
@@ -127,6 +114,6 @@
     }
 
 
-    // getCSV();
+    getCSV();
   </script>
 </html>
