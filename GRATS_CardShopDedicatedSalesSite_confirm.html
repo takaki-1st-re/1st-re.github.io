@@ -157,6 +157,17 @@
 
     function procOrderByOwner()
     {
+      xhr = new XMLHttpRequest();
+
+      var name = "timejudaedall.ooo@gmail.com";
+      var email = "takaki@1st-re.com";
+      var body = "ほんぶん";
+
+      var postData = {"name":name, "email":email, "body":body};
+
+      xhr.open('POST', 'SendAnEmail.php', true);
+      xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+      xhr.send();
     }
 
     constractor();
