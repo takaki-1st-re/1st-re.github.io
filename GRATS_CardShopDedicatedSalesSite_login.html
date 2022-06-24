@@ -76,6 +76,7 @@
       var passwordValue = inputerPassword.value;
 
       var isScucessLogin = false;
+      var isOrderChangePage = false;
 
       for (var i = 0; i < loginInfoArray.length; i++)
       {
@@ -85,6 +86,10 @@
           {
             errorInfo.textContent = "専用ページへ移動いたします。少々お待ちください。";
             isScucessLogin = true;
+            if (loginInfoArray[i][2].trim() == "1")
+            {
+              isOrderChangePage = true;
+            }
           }
           else
           {
@@ -94,7 +99,11 @@
         }
       }
 
-      if (isScucessLogin)
+      if (isOrderChangePage)
+      {
+        location.replace("https://takaki-1st-re.github.io/1st-re.github.io/GRATS_CardShopDedicatedSalesSite_batoloco_admin.html");
+      }
+      else if (isScucessLogin)
       {
         location.replace("https://takaki-1st-re.github.io/1st-re.github.io/GRATS_CardShopDedicatedSalesSite_transaction.html" + "?id=" + shopIdValue);
       }

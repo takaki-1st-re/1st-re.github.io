@@ -1,0 +1,112 @@
+html {
+  font-size: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+h1 {
+  font-size: 30px;
+}
+
+p, li {
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 1px;
+}
+
+b {
+  font-size: 15px;
+}
+
+h1 {
+  margin: 0;
+  padding: 20px 0;
+}
+
+.center_top {
+  position: fixed;
+  top:1px;
+  width: 1000;
+  background-color: white;
+  z-index: 1;
+}
+
+.fixed01{
+  position: sticky;
+  width: 2000;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+  &:before{
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    height: 100%;
+    border: 1px solid #ccc;
+  }
+}
+
+.right_top1 {
+  position:fixed;
+  right:10px;
+  top:20px;
+  text-align: center;
+  background-color: white;
+  z-index: 2;
+}
+
+.right_top2 {
+  position:fixed;
+  right:140px;
+  top:120px;
+  background-color: white;
+}
+
+.right_top2_element {
+  display: flex;
+}
+
+
+div.sample {
+  width:200px; height:100px;
+  margin:5px; padding:10px;
+  border:1px solid black;
+  text-align: center;
+}
+
+.parent{
+  height: 7000;
+}
+
+.l_parent{
+    width: 2000;
+    height: auto;
+}
+
+.l_child{
+    width: 150px;
+    margin: 0px 30px;
+    padding: 20px;
+}
+
+
+.l_child.h2{
+  font-size: 15px;
+}
+
+.l_child2{
+    width: 400px;
+    margin: 0px 0px;
+    padding: 20px;
+}
+
+.l_child2.h2{
+  font-size: 15px;
+}
+
+.l_grandchild{
+    width: 250px;
+    margin: 0 auto;
+    padding: 20px;;
+}
