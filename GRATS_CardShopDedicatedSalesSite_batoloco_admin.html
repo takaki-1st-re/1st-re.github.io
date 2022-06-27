@@ -2439,8 +2439,6 @@
 
     function writeCsvFileBatolocoOrderInfo(csvData)
     {
-      document.getElementById("login_date").textContent = "some";
-
       // ログイン日時取得
       var dayTime = new Date();
 
@@ -2456,7 +2454,7 @@
       var csvString = "";
       for (var data of csvData)
       {
-        csvString += d.join(",");
+        csvString += data.join(",");
         csvString += "\r\n";
       }
 
