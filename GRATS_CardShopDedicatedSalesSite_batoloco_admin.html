@@ -2459,7 +2459,17 @@
       }
 
       var blob = new Blob([csvString], {type: "text/csv"});
-      var uri = URL.createObjectURL(blob);
+      var file = new File([blob], 'copy filename', {type: "text/csv"})
+
+      var formData = new FormData();
+      formData.append(csvFileName, file);
+
+      var xml = new XMLHttpRequest();
+      xml.open('POST', "https://takaki-1st-re.github.io/1st-re.github.io/");
+      xml.setRequestHeader('Content-Type', 'multipart/form-data; charset=utf-8');
+      xml.send(formData);
+      
+      /*var uri = URL.createObjectURL(blob);
 
       var link = document.createElement("a");
       link.download = csvFileName;
@@ -2468,6 +2478,7 @@
 
       document.body.appendChild(link);
       link.click();
+      /*
 
     }
 
