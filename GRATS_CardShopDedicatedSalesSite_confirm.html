@@ -1,8 +1,9 @@
 <html>
+  <script src="https://apis.google.com/js/client.js?onload=onLoadCallbackFunction"></script>
   <head>
     <meta charset="utf-8">
     <title>GRATS_CardShopDedicatedSalesSite</title>
-    <link href="https://takaki-1st-re.github.io/1st-re.github.io/style_login.css" rel="stylesheet" type="text/css">
+    <link href="https://www.1st-re.jp/file/style_login.css" rel="stylesheet" type="text/css">
   </head>
   <div class="text-center">
     <h2>注文内容確認</h2>
@@ -16,6 +17,8 @@
       <tr>
         <td></td>
         <td>
+          <input type="button" value="承認" onclick="approvalGoogleAPI()">
+            <input type="button" value="load" onclick="loadGoogleAPI()">
           <input type="button" value="発注" onclick="procOrderByOwner()">
           <input type="button" value="キャンセル" onclick="history.back()">
         </td>
@@ -34,10 +37,10 @@
     var arrayOrderInfo = [];
     var arrayGoodsTagInfo = [];
     var loginShop
-    var arrayGoodsOrdersInfo = [["", "個数", "単価(税込)", "計"]];
+    var arrayGoodsOrdersInfo = [["", "", "個数", "単価(税込)", "計"]];
     var errorInfo = document.getElementById("error_info");
-    
-    var clientId = "449937318141-rvr9rk83hffhfj2dmlqohccjo20dukbl.apps.googleusercontent.com";
+
+    var clientId = "385715304354-khsfr3d6g85em9p9b2g9krp5a2oilpkq.apps.googleusercontent.com";
     var scopes = ['https://www.googleapis.com/auth/gmail.send'].join(' ');
 
     function constractor()
@@ -80,20 +83,20 @@
             {
               if (i == 0)
               {
-                var interbalTitleElement = [arrayGoodsTagInfo[j][4], "", "", ""];
+                var interbalTitleElement = [arrayGoodsTagInfo[j][4], "", "", "", ""];
                 arrayGoodsOrdersInfo.push(interbalTitleElement);
                 arrayBackGroundColorChangeCells[arrayBackGroundColorChangeCells.length] = i + arrayBackGroundColorChangeCells.length + 1;
               }
               else if(arrayGoodsTagInfo[j][4] != arrayGoodsTagInfo[previousOrdersGoodsIdNum][4])
               {
-                var interbalTitleElement = [arrayGoodsTagInfo[j][4], "", "", ""];
+                var interbalTitleElement = [arrayGoodsTagInfo[j][4], "", "", "", ""];
                 arrayGoodsOrdersInfo.push(interbalTitleElement);
                 arrayBackGroundColorChangeCells[arrayBackGroundColorChangeCells.length] = i + arrayBackGroundColorChangeCells.length + 1;
               }
               var totalGoodsPrice = Number(arrayOrderInfo[i][1]) * Number(arrayGoodsTagInfo[j][3]);
               totalPrice = totalPrice + totalGoodsPrice;
               totalGoodsNum = totalGoodsNum + Number(arrayOrderInfo[i][1]);
-              var arrayElement = [arrayGoodsTagInfo[j][1], arrayOrderInfo[i][1], arrayGoodsTagInfo[j][3].trim() + " 円", String(totalGoodsPrice)　+ " 円"];
+              var arrayElement = [arrayGoodsTagInfo[j][5], arrayGoodsTagInfo[j][1], arrayOrderInfo[i][1], arrayGoodsTagInfo[j][3].trim() + " 円", String(totalGoodsPrice)　+ " 円"];
               arrayGoodsOrdersInfo.push(arrayElement);
               previousOrdersGoodsIdNum = j;
               break;
@@ -101,15 +104,15 @@
           }
         }
 
-        arrayElement = ["", "", "", ""];
+        arrayElement = ["", "", "", "", ""];
         arrayGoodsOrdersInfo.push(arrayElement);
         var postage = 1000;
-        arrayElement = ["送料", "", "", String(postage) + " 円"];
+        arrayElement = ["送料", "", "", "", String(postage) + " 円"];
         arrayGoodsOrdersInfo.push(arrayElement);
-        arrayElement = ["", "", "", ""];
+        arrayElement = ["", "", "", "", ""];
         arrayGoodsOrdersInfo.push(arrayElement);
         totalPrice = totalPrice + postage;
-        arrayElement = ["合計", totalGoodsNum, "", String(totalPrice)　+ " 円"];
+        arrayElement = ["合計", "", String(totalGoodsNum), "", String(totalPrice)　+ " 円"];
         arrayGoodsOrdersInfo.push(arrayElement);
 
         var table = document.getElementById("orderInfoTable");
@@ -120,11 +123,28 @@
           for(j = 0; j < arrayGoodsOrdersInfo[0].length; j++){
             var cell = document.createElement("td");
 
-            cell.textContent = arrayGoodsOrdersInfo[i][j];
+            if (arrayGoodsOrdersInfo[i][j].trim().slice(-4) == ".png")
+            {
+              var goodsImg = document.createElement("img");
+              goodsImg.src = "https://takaki-1st-re.github.io/1st-re.github.io/" + arrayGoodsOrdersInfo[i][j];
+              goodsImg.alt = "";
+              goodsImg.name = arrayGoodsOrdersInfo[i][j].slice(-4);
+              goodsImg.width = 75;
+              goodsImg.height = 75;
+              cell.appendChild(goodsImg.cloneNode(true));
+            }
+            else
+            {
+              cell.textContent = arrayGoodsOrdersInfo[i][j];
+            }
 
             if (arrayBackGroundColorChangeCells.includes(i))
             {
               cell.style.backgroundColor = "#87CEFA";
+              if (j == 0)
+              {
+                cell.colSpan = "2";
+              }
             }
 
             if (i == 0)
@@ -135,10 +155,13 @@
             {
                 cell.align = "center";
             }
-            else if (j == 1 || j == 2 || j == 3)
+            else if (j == 2 || j == 3 || j == 4)
             {
               cell.align = "right";
             }
+
+            if (arrayBackGroundColorChangeCells.includes(i) && j == 4)
+              break;
 
             row.appendChild(cell);
           }
@@ -150,21 +173,25 @@
 
       request.open("get", csvFilePath, true);
       request.send();
-      
-      gapi.auth.authorize({'client_id': clientId, 'scope': scopes, 'immediate': true}, handleAuthResult);
+
 
     }
 
     function canselButtonEvent()
     {
-      location.href = "https://takaki-1st-re.github.io/GRATS_CardShopDedicatedSalesSite_transaction.html";
+      location.href = "https://takaki-1st-re.github.io/grats_site_trans.html";
+    }
+
+    function approvalGoogleAPI()
+    {
+      gapi.auth.authorize({'client_id': clientId, 'scope': scopes, 'immediate': false}, handleAuthResult);
     }
 
     function procOrderByOwner()
     {
-      gapi.client.load('gmail', 'v1', callbackFunction());
 
-      var mimeData = ["To: timejudaedall.ooo@gmail.com",
+
+      var mimeData = ["To: takaki.1stre@gmail.com",
       "Subject: =?utf-8?B?" + window.btoa(unescape(encodeURIComponent("日本語の件名"))) + "?=",
       "MIME-Version: 1.0",
       "Content-Type: text/plain; charset=UTF-8",
@@ -174,6 +201,7 @@
 
       var raw = window.btoa(unescape(encodeURIComponent(mimeData))).replace(/\+/g, '-').replace(/\//g, '_');
 
+      try{
       gapi.client.gmail.users.messages.send({
         'userId': 'me',
         'resource': {
@@ -183,8 +211,18 @@
         errorInfo.textContent = "finish";
       });
     }
-    
-        function handleAuthResult(authResult)
+    catch (e)
+    {
+      errorInfo.textContent = e;
+    }
+    }
+
+    function loadGoogleAPI()
+    {
+    gapi.client.load('gmail', 'v1', callbackFunction());
+    }
+
+    function handleAuthResult(authResult)
     {
       if (authResult && !authResult.error) {
       // 認証後の処理
