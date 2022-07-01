@@ -36,6 +36,9 @@
     var loginShop
     var arrayGoodsOrdersInfo = [["", "個数", "単価(税込)", "計"]];
     var errorInfo = document.getElementById("error_info");
+    
+    var clientId = "449937318141-rvr9rk83hffhfj2dmlqohccjo20dukbl.apps.googleusercontent.com";
+    var scopes = ['https://www.googleapis.com/auth/gmail.send'].join(' ');
 
     function constractor()
     {
@@ -147,6 +150,8 @@
 
       request.open("get", csvFilePath, true);
       request.send();
+      
+      gapi.auth.authorize({'client_id': clientId, 'scope': scopes, 'immediate': true}, handleAuthResult);
 
     }
 
@@ -157,17 +162,41 @@
 
     function procOrderByOwner()
     {
-      xhr = new XMLHttpRequest();
+      gapi.client.load('gmail', 'v1', callbackFunction());
 
-      var name = "timejudaedall.ooo@gmail.com";
-      var email = "takaki@1st-re.com";
-      var body = "ほんぶん";
+      var mimeData = ["To: timejudaedall.ooo@gmail.com",
+      "Subject: =?utf-8?B?" + window.btoa(unescape(encodeURIComponent("日本語の件名"))) + "?=",
+      "MIME-Version: 1.0",
+      "Content-Type: text/plain; charset=UTF-8",
+      "Content-Transfer-Encoding: 7bit",
+      "",
+      "ここから本文"].join("\n").trim();
 
-      var postData = {"name":name, "email":email, "body":body};
+      var raw = window.btoa(unescape(encodeURIComponent(mimeData))).replace(/\+/g, '-').replace(/\//g, '_');
 
-      xhr.open('POST', 'SendAnEmail.php', true);
-      xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
-      xhr.send();
+      gapi.client.gmail.users.messages.send({
+        'userId': 'me',
+        'resource': {
+          'raw': raw
+        }
+      }).execute(function() {
+        errorInfo.textContent = "finish";
+      });
+    }
+    
+        function handleAuthResult(authResult)
+    {
+      if (authResult && !authResult.error) {
+      // 認証後の処理
+      }
+      else {
+      // 認証できていない時やエラーの時の処理
+      }
+    }
+
+    function callbackFunction()
+    {
+
     }
 
     constractor();
