@@ -19,6 +19,10 @@ order_numa,100,100
 order_sansen,100,100
 order_tanoshiso,100,100
 order_genba,100,100
+order_progress_special,100,100
+order_stayfocused_special,100,100
+order_savage_special,100,100
+order_yellow,100,100
 order_get_over_it,100,100
 order_watch_out,100,100
 order_cosmic,100,100
