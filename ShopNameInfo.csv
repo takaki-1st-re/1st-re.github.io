@@ -1,41 +1,43 @@
 ﻿1st-re,株式会社ファーストアールイー
 admin,管理者
 administrator,サイト管理者
-,トーナメントセンターバトロコ柏店
-,トーナメントセンターバトロコ高田馬場店
-,トーナメントセンターバトロコ水戸駅前店
-,トーナメントセンターバトロコ札幌狸小路点
-,トーナメントセンターバトロコ小山駅前店
-,トーナメントセンターバトロコ横浜伊勢佐木町店
-,トーナメントセンターバトロコ本厚木駅前店
-,トーナメントセンターバトロコ川崎駅前店
-,トーナメントセンターバトロコ高崎駅前店
-,バトロコミニ苫小牧バイパス店
-,バトロコミニ渋谷駅前店
-,トーナメントセンターバトロコ新津田沼店
-,トーナメントセンターバトロコ渋谷センター街店
-,トーナメントセンターバトロコ藤沢駅北口店
-,トーナメントセンターバトロコ吉祥寺駅前店
-,トーナメントセンターバトロコ旭川駅前店
-,バトロコミニ前橋文京店
-,トーナメントセンターバトロコ札幌大通り店
-,トーナメントセンターバトロコ川越店
-,コンプオフ山室店
-,コンプオフ野々市店
-,コンプオフ西町店
-,株式会社ビーエイト
-,トレカセブン
-,おたちゅう夢大陸長岡店
-,とかげのしっぽ
-,なつかし屋チャレンジ
-,トレカ侍2号店
-,Fammys Book One
-,トレカライン
-,Cards of Paradise 桜木店
-,トレカホライゾン
-,遊ing 熊本上通り店
-,遊ing 浜町店
-,カードショップBungBung
-,カードショップアビス
-,88ラウンド
-,株式会社NextLevel
+batoloco,サイト管理者
+batoloco_master,株式会社Vidaway　高橋 洋貴
+batoloco_kashiwa,トーナメントセンターバトロコ柏店
+batoloco_baba,トーナメントセンターバトロコ高田馬場店
+batoloco_mito,トーナメントセンターバトロコ水戸駅前店
+batoloco_tanukikozi,トーナメントセンターバトロコ札幌狸小路点
+batoloco_oyama,トーナメントセンターバトロコ小山駅前店
+batoloco_isesaki,トーナメントセンターバトロコ横浜伊勢佐木町店
+batoloco_honatsugi,トーナメントセンターバトロコ本厚木駅前店
+batoloco_kawasaki,トーナメントセンターバトロコ川崎駅前店
+batoloco_takasaki,トーナメントセンターバトロコ高崎駅前店
+batoloco_minitomakomai,バトロコミニ苫小牧バイパス店
+batoloco_minishibuya,バトロコミニ渋谷駅前店
+batoloco_shintsudanuma,トーナメントセンターバトロコ新津田沼店
+batoloco_shibuyacenter,トーナメントセンターバトロコ渋谷センター街店
+batoloco_fuzisawa,トーナメントセンターバトロコ藤沢駅北口店
+batoloco_kitizyozi,トーナメントセンターバトロコ吉祥寺駅前店
+batoloco_asahikawa,トーナメントセンターバトロコ旭川駅前店
+batoloco_minimaehashibunkyo,バトロコミニ前橋文京店
+batoloco_sapporo,トーナメントセンターバトロコ札幌大通り店
+batoloco_kawagoe,トーナメントセンターバトロコ川越店
+compoff_yamamuro,コンプオフ山室店
+compoff_nonoichi,コンプオフ野々市店
+compoff_takaika,コンプオフ高岡西町店
+beems,株式会社ビーエイト
+torecaseven,トレカセブン
+ymtrngok_gc,おたちゅう夢大陸長岡店
+tail_of_lizard,とかげのしっぽ
+natsukashiya,なつかし屋チャレンジ
+torekazamurai,トレカ侍2号店
+fammysbookone,Fammys Book One
+torekaline,トレカライン
+card_paradise,Cards of Paradise 桜木店
+torecahorizon,トレカホライゾン
+youing_kumamoto,遊ing 熊本上通り店
+youing_hamamachi,遊ing 浜町店
+bungbung,カードショップBungBung
+abisu,カードショップアビス
+88round,88ラウンド
+WiZ,株式会社NextLevel
