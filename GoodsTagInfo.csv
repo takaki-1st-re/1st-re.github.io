@@ -30,6 +30,7 @@ order_progress_special,PROGRESS 限定カラー,1,700,限定カラー,progress_s
 order_stayfocused_special,STAYFOCUSED 限定カラー,1,700,限定カラー,stayfocused_special.png
 order_savage_special,SAVAGE 限定カラー,1,700,限定カラー,savage_special.png
 order_yellow,キイロ,1,700,限定カラー,yellow.png
+order_zebra,ゼブラ 限定カラー,1,7000,限定カラー,zebra_special.png
 order_get_over_it,GET OVER IT.,1,700,第6弾タイトル,get_over_it.png
 order_watch_out,WATCH OUT!,1,700,第6弾タイトル,watch_out.png
 order_cosmic,COSMIC,1,700,第6弾タイトル,cosmic.png
