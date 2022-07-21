@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>GRATS_CardShopDedicatedSalesSite</title>
-    <link href="https://takaki-1st-re.github.io/1st-re.github.io/style_login.css" rel="stylesheet" type="text/css">
+    <link href="https://takaki-1st-re.github.io/1st-re.github.io/style_confirm.css" rel="stylesheet" type="text/css">
   </head>
   <div class="text-center">
     <h2>注文確認画面</h2>
@@ -254,8 +254,8 @@
 
       var strSaveCsvData = makeStrShopOrderCsvData(arrayGoodsOrdersInfo, receptionDate);
       var subject = loginShopName + " 様　ご注文内容送信";
-      var address = "takebayashi@1st-re.jp";
-      var cc = "takaki@1st-re.jp"
+      var address = "takaki@1st-re.jp";
+      var cc = "takebayashi@1st-re.jp";
       var body = mailStr + loginShopName + mailStr2 + separationStr + strSaveCsvData;
       //改行コードの変換対応
       body = body.replace(/\n\r?/g, '%0D%0A');

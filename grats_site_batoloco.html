@@ -3158,10 +3158,10 @@
 
       if (!isError){
 
-        subject = loginShopName + " 様　ご注文内容送信";
-        address = "takebayashi@1st-re.jp";
-        cc = "takaki@1st-re.jp"
-        body = mailStr + loginShopName + mailStr2 + separationStr + strSaveCsvData;
+        var subject = loginShopName + " 様　ご注文内容送信";
+        var address = "takaki@1st-re.jp";
+        var cc = "takebayashi@1st-re.jp";
+        var body = mailStr + loginShopName + mailStr2 + separationStr + strSaveCsvData;
         //改行コードの変換対応
         body = body.replace(/\n\r?/g, '%0D%0A');
 
