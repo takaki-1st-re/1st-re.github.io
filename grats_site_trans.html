@@ -1,0 +1,2856 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GRATS_CardShopDedicatedSalesSite_transaction</title>
+    <link href="https://takaki-1st-re.github.io/1st-re.github.io/styles/style_transaction.css" rel="stylesheet" type="text/css">
+  </head>
+  <div class="right_top1">
+   <h3>※※※※※※※※※※※※※※※お知らせ※※※※※※※※※※※※※※※</h3>
+   <h3 id="information1">新作・再販スリーブの発送は8月3日を予定しております。</h3>
+   <h3 id="information2">新作スリーブの販売は8月6日からお願いいたします。</h3>
+   <h3>※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※</h3>
+  </div>
+  <div class="right_top2">
+   <h2>ログイン情報</h2>
+   <div class="right_top2_element">
+     <h3>ログイン店舗：</h3>
+     <h3 id="shop_name">○○○○○○○○○○</h3>
+     <h3>様</h3>
+   </div>
+   <div class="right_top2_element">
+     <h3>ログイン日時：</h3>
+     <h3 id="login_date">yy:mm:dd:hh:MM:ss</h3>
+   </div>
+   <h2>注文情報</h2>
+   <div class="right_top2_element">
+     <h3>クリエイターズ：￥840×</h3>
+     <h3 id="num_creaters">0</h3>
+     <h3>=￥</h3>
+     <h3 id="price_creaters">0</h3>
+   </div>
+   <div class="right_top2_element">
+     <h3>通常スリーブ：￥700×</h3>
+     <h3 id="num_normal">0</h3>
+     <h3>=￥</h3>
+     <h3 id="price_normal">0</h3>
+   </div>
+   <div class="right_top2_element">
+     <h3>ファインマット：￥520×</h3>
+     <h3 id="num_fine_mat">0</h3>
+     <h3>=￥</h3>
+     <h3 id="price_fine_mat">0</h3>
+   </div>
+   <div class="right_top2_element">
+     <h3>抗菌クリアー：￥490×</h3>
+     <h3 id="num_antibacterial">0</h3>
+     <h3>=￥</h3>
+     <h3 id="price_antibacterial">0</h3>
+   </div>
+   <div class="right_top2_element">
+     <h3>クリアー：￥420×</h3>
+     <h3 id="num_clear">0</h3>
+     <h3>=￥</h3>
+     <h3 id="price_clear">0</h3>
+   </div>
+   <div class="right_top2_element">
+     <h3>デッキポーチ単品：￥1,500×</h3>
+     <h3 id="num_deck_case">0</h3>
+     <h3>=￥</h3>
+     <h3 id="price_deck_case">0</h3>
+   </div>
+   <div class="right_top2_element">
+     <h3>デッキポーチストラップ付：￥2,000×</h3>
+     <h3 id="num_deck_case_strap">0</h3>
+     <h3>=￥</h3>
+     <h3 id="price_deck_case_strap">0</h3>
+   </div>
+   <div class="right_top2_element">
+     <h3>合計金額：</h3>
+     <h3>￥</h3>
+     <h3 id="total_price">0</h3>
+   </div>
+   <tr>
+     <td></td>
+     <td>
+       <input type="button" value="注文確認" onclick="transitionOrderConfirm()">
+       <input type="button" value="リセット" onclick="resetAllOrderInfo()">
+       <!--<input type="button" value="キャンセル" onclick="cancelButtonEvent()">-->
+     </td>
+   </tr>
+  </div>
+  <div class="fixed01">
+    <div class="fixed_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/logo.png" alt="grats_logo_image" width="230" height="60">
+      <h1>注文入力画面</h1>
+    </div>
+  </div>
+  <div>
+    <p></p>
+  </div>
+  <div>
+    <h1>クリエイターズシリーズ（64枚入り）</h1>
+  </div>
+  <!-- クリエイターズ第5弾 -->
+  <div class="l_parent"><!-- 楽園東京 -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_rakuentokyo.png" width="160" height="220" alt="rakuentokyo">
+    </div>
+    <div class="l_child2">
+      <h1>楽園東京</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_rakuentokyo_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_rakuentokyo" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="l_parent"><!-- GET TIPSY -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_get_tipsy.png" width="160" height="220" alt="get_tipsy">
+    </div>
+    <div class="l_child2">
+      <h1>GET TIPSY</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_get_tipsy_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_get_tipsy" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="l_parent"><!-- I LIKE IT -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_i_like_it.png" width="160" height="220" alt="i_like_it">
+    </div>
+    <div class="l_child2">
+      <h1>I LIKE IT</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_i_like_it_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_i_like_it" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="l_parent"><!-- TOGETHER AGAIN -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_together_again.png" width="160" height="220" alt="together_again">
+    </div>
+    <div class="l_child2">
+      <h1>TOGETHER AGAIN</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_together_again_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_together_again" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- クリエイターズ第5弾 -->
+  <div hidden><!-- DEMON -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_demon.png" width="160" height="220" alt="demon">
+    </div>
+    <div class="l_child2">
+      <h1>DEMON</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_demon_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_demon" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- APOPTOSIS -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_apoptosis.png" width="160" height="220" alt="apoptosis">
+    </div>
+    <div class="l_child2">
+      <h1>APOPTOSIS</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_apoptosis_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_apoptosis" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- JUDGEMENT -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_judgement.png" width="160" height="220" alt="judgement">
+    </div>
+    <div class="l_child2">
+      <h1>JUDGEMENT</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_judgement_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_judgement" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- UNDERGROUND -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_underground.png" width="160" height="220" alt="underground">
+    </div>
+    <div class="l_child2">
+      <h1>UNDERGROUND</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_underground_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_underground" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- クリエイターズ第4弾 -->
+  <div hidden><!-- REMINISCE -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_reminisce.png" width="160" height="220" alt="reminisce">
+    </div>
+    <div class="l_child2">
+      <h1>REMINISCE</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_reminisce_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_reminisce" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- YOU KNOW MY STEEZ -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_you_know_my_steez.png" width="160" height="220" alt="you_know_my_steez">
+    </div>
+    <div class="l_child2">
+      <h1>YOW KNOW MY STEEZ</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_you_know_my_steez_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_you_know_my_steez" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- LIVIN' IT UP -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_livin_it_up.png" width="160" height="220" alt="livin_it_up">
+    </div>
+    <div class="l_child2">
+      <h1>LIVIN' IT UP</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_livin_it_up_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_livin_it_up" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- ALWAYS ON TIME -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_always_on_time.png" width="160" height="220" alt="always_on_time">
+    </div>
+    <div class="l_child2">
+      <h1>ALWAYS ON TIME</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_always_on_time_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_always_on_time" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- クリエイターズ第3弾 -->
+  <div hidden><!-- GO DEEP -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_go_deep.jpg" width="160" height="220" alt="go_deep">
+    </div>
+    <div class="l_child2">
+      <h1>GO DEEP</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_go_deep_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_go_deep" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- BABY BABY BABY -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_baby_baby_baby.jpg" width="160" height="220" alt="baby_baby_baby">
+    </div>
+    <div class="l_child2">
+      <h1>BABY BABY BABY</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_baby_baby_baby_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_baby_baby_baby" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- NO SCRUBS -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_no_scrubs.jpg" width="160" height="220" alt="no_scrubs">
+    </div>
+    <div class="l_child2">
+      <h1>NO SCRUBS</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_no_scrubs_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_no_scrubs" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- SUNNY -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_sunny.jpg" width="160" height="220" alt="sunny">
+    </div>
+    <div class="l_child2">
+      <h1>SUNNY</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_sunny_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_sunny" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- クリエイターズ第2弾 -->
+  <div class="l_parent"><!-- PRESENCE -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_presence.png" width="160" height="220" alt="presence">
+    </div>
+    <div class="l_child2">
+      <h1>PRESENCE</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_presence_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_presence" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- ember -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_ember.png" width="160" height="220" alt="ember">
+    </div>
+    <div class="l_child2">
+      <h1>ember</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_ember_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_ember" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- DEVILISH -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_devilish.png" width="160" height="220" alt="devilish">
+    </div>
+    <div class="l_child2">
+      <h1>DEVILISH</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_devilish_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_devilish" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- VIOLENTY -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_violently.png" width="160" height="220" alt="violently">
+    </div>
+    <div class="l_child2">
+      <h1>VIORLENTLY</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_viorently_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_viorently" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- クリエイターズ第1弾 -->
+  <div class="l_parent"><!-- BESTIE -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_bestie.png" width="160" height="220" alt="bestie">
+    </div>
+    <div class="l_child2">
+      <h1>BESTIE</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_bestie_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_bestie" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- VIRGO -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_virgo.png" width="160" height="220" alt="virgo">
+    </div>
+    <div class="l_child2">
+      <h1>VIRGO</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_virgo_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_virgo" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- DON'T LET ME DOWN -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_don't_let_me_down.png" width="160" height="220" alt="don't_let_me_down">
+    </div>
+    <div class="l_child2">
+      <h1>DON'T LET ME DOWN</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_don't_let_me_down_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_don't_let_me_down" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- CORD -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_cord.png" width="160" height="220" alt="cord">
+    </div>
+    <div class="l_child2">
+      <h1>CORD</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_cord_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_cord" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- いらすとや -->
+  <div class="l_parent"><!-- 沼へようこそ -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_numa.png" width="160" height="220" alt="numa">
+    </div>
+    <div class="l_child2">
+      <h1>沼へようこそ</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_numa_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_numa" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="l_parent"><!-- 参戦!! -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_sansen.png" width="160" height="220" alt="sansen">
+    </div>
+    <div class="l_child2">
+      <h1>参戦!!</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_sansen_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_sansen" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="l_parent"><!-- 楽しそうでなにより -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_tanoshiso.png" width="160" height="220" alt="tanoshiso">
+    </div>
+    <div class="l_child2">
+      <h1>楽しそうでなにより</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_tanoshiso_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_tanoshiso" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="l_parent"><!-- 現場からは以上です -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/creater_genba.png" width="160" height="220" alt="genba">
+    </div>
+    <div class="l_child2">
+      <h1>現場からは以上です</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥840</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_genba_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_genba" min="0" max="100" onblur="updateCreatersOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div>
+    <h1>限定カラー</h1>
+  </div>
+  <div class="l_parent"><!-- PROGRESS 限定カラー -->
+    <div class="l_child">
+        <img src="https://takaki-1st-re.github.io/1st-re.github.io/progress_special.png" width="160" height="220" alt="progress_special">
+    </div>
+    <div class="l_child2">
+      <h1>PROGRESS 限定カラー</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_progress_special_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_progress_special" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- STAYFOCUSED 限定カラー -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/stayfocused_special.png" width="160" height="220" alt="stayfocused_special">
+    </div>
+    <div class="l_child2">
+      <h1>STAY FOCUSED 限定カラー</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_stayfocused_special_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_stayfocused_special" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- SAVAGE 限定カラー -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/savage_special.png" width="160" height="220" width="160" height="220" alt="savage_special">
+    </div>
+    <div class="l_child2">
+      <h1>SAVAGE 限定カラー</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_savage_special_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_savage_special" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- キイロ 限定カラー -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/yellow.png" width="160" height="220" alt="yellow">
+    </div>
+    <div class="l_child2">
+      <h1>キイロ 限定カラー</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_yellow_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_yellow" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- ゼブラ 限定カラー -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/zebra_special.png" width="160" height="220" width="160" height="220" alt="zebra_special">
+    </div>
+    <div class="l_child2">
+      <h1>ゼブラ 限定カラー</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_zebra_special_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_zebra_special" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div>
+    <h1>第6弾タイトル</h1>
+  </div>
+  <div hidden><!-- GET OVER IT. -->
+    <div class="l_child">
+        <img src="https://takaki-1st-re.github.io/1st-re.github.io/get_over_it.png" width="160" height="220" alt="get_over_it">
+    </div>
+    <div class="l_child2">
+      <h1>GET OVER IT.</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_get_over_it_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_get_over_it" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="l_parent"><!-- WATCH　OUT -->
+    <div class="l_child">
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/watch_out.png" width="160" height="220" alt="watch_out">
+    </div>
+    <div class="l_child2">
+      <h1>WATCH OUT!</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_watch_out_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_watch_out" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- COSMIC -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/cosmic.png" width="160" height="220" width="160" height="220" alt="cosmic">
+    </div>
+    <div class="l_child2">
+      <h1>COSMIC</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_cosmic_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_cosmic" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- REALIZE -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/realize.png" width="160" height="220" alt="realize">
+    </div>
+    <div class="l_child2">
+      <h1>REALIZE</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_realize_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_realize" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="l_parent"><!-- ADORABLE -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/adorable.png" width="160" height="220" alt="adorable">
+    </div>
+    <div class="l_child2">
+      <h1>ADORABLE</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_adorable_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_adorable" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- GENIUS -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/genius.png" width="160" height="220" alt="genius">
+    </div>
+    <div class="l_child2">
+      <h1>GENIUS</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_genius_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_genius" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- REVIBE -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/revibe.png" width="160" height="220" alt="revibe">
+    </div>
+    <div class="l_child2">
+      <h1>REVIBE</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_revibe_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_revibe" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- ゼブラ -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/zebra.png" width="160" height="220" alt="zebra">
+    </div>
+    <div class="l_child2">
+      <h1>ゼブラ</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_zebra_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_zebra" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div>
+    <h1>第5弾タイトル</h1>
+  </div>
+  <div hidden><!-- FACT -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/fact.png" width="160" height="220" alt="fact">
+    </div>
+    <div class="l_child2">
+      <h1>FACT</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_fact_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_fact" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- PROGRESS -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/progress.png" width="160" height="220" alt="progress">
+    </div>
+    <div class="l_child2">
+      <h1>PROGRESS</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_progress_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_progress" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- CRUEL WORLD -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/cruel_world.png" width="160" height="220" alt="cruel_world">
+    </div>
+    <div class="l_child2">
+      <h1>CRUEL WORLD</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_cruel_world_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_cruel_world" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="l_parent"><!-- CONFIDENCE -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/confidence.png" width="160" height="220" alt="confidence">
+    </div>
+    <div class="l_child2">
+      <h1>CONFIDENCE</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_confidence_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_confidence" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- STAYFOCUSED -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/stayfocused.png" width="160" height="220" alt="stayfocused">
+    </div>
+    <div class="l_child2">
+      <h1>STAYFOCUSED</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_stayfocused_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_stayfocused" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="l_parent"><!-- TACTICS -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/tactics.png" width="160" height="220" alt="tactics">
+    </div>
+    <div class="l_child2">
+      <h1>TACTICS</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_tactics_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_tactics" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- SAVAGE -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/savage.png" width="160" height="220" alt="savage">
+    </div>
+    <div class="l_child2">
+      <h1>SAVAGE</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_savage_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_savage" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- オレンジ -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/orange.png" width="160" height="220" alt="orange">
+    </div>
+    <div class="l_child2">
+      <h1>オレンジ</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_orange_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_orange" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div>
+    <h1 hidden>第4弾タイトル</h1>
+  </div>
+  <div hidden><!-- VICTORY -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/victory.png" width="160" height="220" alt="victory">
+    </div>
+    <div class="l_child2">
+      <h1>VICTORY</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_victory_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_victory" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- NEWAGE -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/newage.png" width="160" height="220" alt="newage">
+    </div>
+    <div class="l_child2">
+      <h1>NEWAGE</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_newage_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_newage" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- 勝利の女神 -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/geddess_of_victory.png" width="160" height="220" alt="geddess_of_victory">
+    </div>
+    <div class="l_child2">
+      <h1>勝利の女神</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_geddess_of_victory_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_geddess_of_victory" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- JUST BE YOU -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/just_be_you.png" width="160" height="220" alt="just_be_you">
+    </div>
+    <div class="l_child2">
+      <h1>JUST BE YOU</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_just_be_you_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_just_be_you" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- RUN 2 WIN -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/run_2_win.png" width="160" height="220" alt="run_2_win">
+    </div>
+    <div class="l_child2">
+      <h1>RUN 2 WIN</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_run_2_win_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_run_2_win" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- HYPNOTIZE -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/hypnotize.png" width="160" height="220" alt="hypnotize">
+    </div>
+    <div class="l_child2">
+      <h1>HYPNOTIZE</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_hypnotize_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_hypnotize" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- GOOD FORTUNE -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/good_fortune.png" width="160" height="220" alt="good_fortune">
+    </div>
+    <div class="l_child2">
+      <h1>GOOD FORTUNE</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_good_fortune_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_good_fortune" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- ムラサキ -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/violet.png" width="160" height="220" alt="violet">
+    </div>
+    <div class="l_child2">
+      <h1>ムラサキ</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_violet_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_violet" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div>
+    <h1>第3弾タイトル</h1>
+  </div>
+  <div class="l_parent"><!-- タマシイ -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/tamashi.jpg" width="160" height="220" alt="tamashi">
+    </div>
+    <div class="l_child2">
+      <h1>タマシイ</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_tamashi_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_tamashi" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- BET -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/bet.jpg" width="160" height="220" alt="bet">
+    </div>
+    <div class="l_child2">
+      <h1>BET</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_bet_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_bet" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- ハチとチョウ -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/bee_and_butterfly.jpg" width="160" height="220" alt="bee_and_butterfly">
+    </div>
+    <div class="l_child2">
+      <h1>ハチとチョウ</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_bee_and_butterfly_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_bee_and_butterfly" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- THUMBS UP -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/thumbs_up.png" width="160" height="220" alt="thumbs_up">
+    </div>
+    <div class="l_child2">
+      <h1>THUMBS UP</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_thumbs_up_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_thumbs_up" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- NONFICTION -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/nonfiction.jpg" width="160" height="220" alt="nonfiction">
+    </div>
+    <div class="l_child2">
+      <h1>NONFICTION</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_nonfiction_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_nonfiction" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- Thorny -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/thorny.jpg" width="160" height="220" alt="thorny">
+    </div>
+    <div class="l_child2">
+      <h1>Thorny</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_thorny_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_thorny" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- CHECK -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/check.jpg" width="160" height="220" alt="check">
+    </div>
+    <div class="l_child2">
+      <h1>CHECK</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_check_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_check" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- ターコイズブルー -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/turquoise_blue.jpg" width="160" height="220" alt="turquoise_blue">
+    </div>
+    <div class="l_child2">
+      <h1>ターコイズブルー</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_turquoise_blue_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_turquoise_blue" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div>
+    <h1 hidden>第2弾タイトル</h1>
+  </div>
+  <div hidden><!-- NEWS -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/news.jpg" width="160" height="220" alt="news">
+    </div>
+    <div class="l_child2">
+      <h1>NEWS</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_news_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_news" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- THX4U -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/thx4u.jpg" width="160" height="220" alt="thx4u">
+    </div>
+    <div class="l_child2">
+      <h1>THX4U</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_thx4u_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_thx4u" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- SAME IS SO LAME! -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/same_is_so_lame.jpg" width="160" height="220" alt="same_is_so_lame">
+    </div>
+    <div class="l_child2">
+      <h1>SAME IS SO LAME!</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_same_is_so_lame_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_same_is_so_lame" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- LOCK ON -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/lock_on.jpg" width="160" height="220" alt="lock_on">
+    </div>
+    <div class="l_child2">
+      <h1>LOCK ON</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_lock_on_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_lock_on" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- シロ -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/white.jpg" width="160" height="220" alt="white">
+    </div>
+    <div class="l_child2">
+      <h1>シロ</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_white_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_white" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- メイサイ -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/camouflage.jpg" width="160" height="220" alt="white">
+    </div>
+    <div class="l_child2">
+      <h1>メイサイ</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_camouflage_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_camouflage" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- グレー -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/gray.jpg" width="160" height="220" alt="gray">
+    </div>
+    <div class="l_child2">
+      <h1>グレー</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_gray_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_gray" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- マゼンダ -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/magenta.jpg" width="160" height="220" alt="magenta">
+    </div>
+    <div class="l_child2">
+      <h1>マゼンダ</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_magenta_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_magenta" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div>
+    <h1 hidden>第1弾タイトル</h1>
+  </div>
+  <div hidden><!-- CHOICE IS YOURS -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/choice_is_yours.jpg" width="160" height="220" alt="choice_is_yours">
+    </div>
+    <div class="l_child2">
+      <h1>CHOICE IS YOURS</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_choice_is_yours_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_choice_is_yours" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- U MAD? -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/u_mad.jpg" width="160" height="220" alt="u_mad">
+    </div>
+    <div class="l_child2">
+      <h1>U MAD?</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_u_mad_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_u_mad" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- I FEEL -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/i_feel.jpg" width="160" height="220" alt="i_feel">
+    </div>
+    <div class="l_child2">
+      <h1>I FEEL</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_i_feel_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_i_feel" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- DICEHOLIC -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/dice_holic.jpg" width="160" height="220" alt="i_feel">
+    </div>
+    <div class="l_child2">
+      <h1>DICEHOLIC</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_dice_holic_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_dice_holic" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- GLHF -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/glhf.jpg" width="160" height="220" alt="glhf">
+    </div>
+    <div class="l_child2">
+      <h1>GLHF</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_glhf_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_glhf" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- PREYING ON -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/preying_on.jpg" width="160" height="220" alt="preying_on">
+    </div>
+    <div class="l_child2">
+      <h1>PREYING ON</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_preying_on_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_preying_on" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- GBY -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/gby.jpg" width="160" height="220" alt="gby">
+    </div>
+    <div class="l_child2">
+      <h1>GBY</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_gby_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_gby" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div hidden><!-- YOU READY? -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/you_ready.jpg" width="160" height="220" alt="gby">
+    </div>
+    <div class="l_child2">
+      <h1>YOU READY?</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥700</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_you_ready_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_you_ready" min="0" max="100" onblur="updateNormalSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div>
+    <h1>オーバースリーブ</h1>
+  </div>
+  <div class="l_parent"><!-- ファインマット -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/fine_mat.jpg" width="160" height="220" alt="gby">
+    </div>
+    <div class="l_child2">
+      <h1>ファインマット</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥520</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_fine_mat_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_fine_mat" min="0" max="100" onblur="updateOverSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="l_parent"><!-- 抗菌クリアー -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/antibacterial.jpg" width="160" height="220" alt="gby">
+    </div>
+    <div class="l_child2">
+      <h1>抗菌クリアー</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥490</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_antibacterial_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_antibacterial" min="0" max="100" onblur="updateOverSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="l_parent"><!-- クリアー -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/clear.jpg" width="160" height="220" alt="gby">
+    </div>
+    <div class="l_child2">
+      <h1>クリアー</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥420</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_clear_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_clear" min="0" max="100" onblur="updateOverSleeveOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div>
+    <h1>デッキポーチ</h1>
+  </div>
+  <div class="l_parent"><!-- ブラック単品 -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/deck_case.jpg" width="160" height="220" alt="deck_case">
+    </div>
+    <div class="l_child2">
+      <h1>ブラック単品</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥1,500</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_deck_case_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_deck_case" min="0" max="100" onblur="updateDeckCaseOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="l_parent"><!-- ブラックストラップ付 -->
+    <div class="l_child">
+      <img src="https://takaki-1st-re.github.io/1st-re.github.io/deck_case_strap.jpg" width="160" height="220" alt="deck_case">
+    </div>
+    <div class="l_child2">
+      <h1>ブラックストラップ付</h1>
+      <p></p>
+      <table border="0">
+        <tr>
+          <td align="right"><b>金額(税込み)：</b></td>
+          <td align="right"><b>￥2,000</b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>注文可能数：</b></td>
+          <td align="right"><b id = "order_deck_case_strap_avaliable"></b></td>
+        </tr>
+      </table>
+      <table border="0">
+        <tr>
+          <td align="right"><b>希望注文数：</b></td>
+          <td><input type="number" id="order_deck_case_strap" min="0" max="100" onblur="updateDeckCaseOrderInfo(this)"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script src="https://cord.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+
+  var arrayCreatersInputerId = ["order_rakuentokyo", "order_get_tipsy", "order_i_like_it", "order_together_again",
+                                "order_demon", "order_apoptosis", "order_judgement", "order_underground",
+                                "order_reminisce", "order_you_know_my_steez", "order_livin_it_up", "order_always_on_time",
+                                "order_go_deep", "order_baby_baby_baby", "order_no_scrubs", "order_sunny",
+                                "order_presence", "order_ember", "order_devilish", "order_viorently",
+                                "order_bestie", "order_virgo", "order_don't_let_me_down", "order_cord",
+                                "order_numa", "order_sansen", "order_tanoshiso", "order_genba"];
+  var creatersTotalNum = 0;
+
+  var arraySpecialColotSleeveInputerId = ["order_progress_special", "order_stayfocused_special", "order_savage_special", "order_yellow", "order_zebra_special"];
+
+  var arrayNormalSleeveInputerId = ["order_get_over_it", "order_watch_out", "order_cosmic", "order_realize", "order_adorable",
+                                    "order_genius", "order_revibe", "order_zebra", "order_fact", "order_progress", "order_cruel_world",
+                                    "order_confidence", "order_stayfocused", "order_tactics", "order_savage", "order_orange",
+                                    "order_victory", "order_newage", "order_geddess_of_victory", "order_just_be_you", "order_run_2_win",
+                                    "order_hypnotize", "order_good_fortune", "order_violet", "order_tamashi", "order_bet", "order_bee_and_butterfly",
+                                    "order_thumbs_up", "order_nonfiction", "order_thorny", "order_check", "order_turquoise_blue",
+                                    "order_news", "order_thx4u", "order_same_is_so_lame", "order_lock_on", "order_white",
+                                    "order_camouflage", "order_gray", "order_magenta", "order_choice_is_yours",
+                                    "order_u_mad", "order_i_feel", "order_dice_holic", "order_glhf", "order_preying_on", "order_gby", "order_you_ready"];
+
+  var arrayShopInfo = [];
+  var arrayAvaliableNum = [];
+
+  var normalTotalNum = 0;
+
+  var inputerFimeMat = document.getElementById("order_fine_mat");
+  var inputerAntibacterial = document.getElementById("order_antibacterial");
+  var inputerClear = document.getElementById("order_clear");
+
+  var inputerDeckCase = document.getElementById("order_deck_case");
+  var inputerDeckCaseStrap = document.getElementById("order_deck_case_strap");
+
+  var numCreaters = document.getElementById("num_creaters");
+  var numNormal = document.getElementById("num_normal");
+  var numFineMat = document.getElementById("num_fine_mat");
+  var numAntibacterial = document.getElementById("num_antibacterial");
+  var numClear = document.getElementById("num_clear");
+  var numDeckCase = document.getElementById("num_deck_case");
+  var numDeckCaseStrap = document.getElementById("num_deck_case_strap");
+
+  var priceCreaters = document.getElementById("price_creaters");
+  var priceNormal = document.getElementById("price_normal");
+  var priceFineMat = document.getElementById("price_fine_mat");
+  var priceAntibacterial = document.getElementById("price_antibacterial");
+  var priceClear = document.getElementById("price_clear");
+  var priceDeckCase = document.getElementById("price_deck_case");
+  var priceDeckCaseStrap = document.getElementById("price_deck_case_strap");
+
+  var priceTotal = document.getElementById("total_price");
+
+  var shopId = "";
+
+  var loginDate = "";
+
+  function constractor(){
+
+    // ログイン店舗情報取得
+    let url = new URL(window.location.href);
+    let urlParams = url.searchParams;
+
+    shopId = urlParams.get('id');
+
+    if (shopId != null)
+    {
+      var csvFilePath = "https://takaki-1st-re.github.io/1st-re.github.io/ShopNameInfo.csv";
+
+      var request = new XMLHttpRequest();
+
+      request.addEventListener('load', (event) => {
+        var arr = event.target.responseText.split('\n');
+
+        for(var i = 0; i < arr.length - 1; i++)
+        {
+          //","ごとに配列化
+          arrayShopInfo[i] = arr[i].split(',');
+        }
+        document.getElementById("shop_name").textContent = arr;
+
+        for (var i = 0; i < arrayShopInfo.length; i++)
+        {
+          if (arrayShopInfo[i][0].trim() == shopId)
+          {
+            document.getElementById("shop_name").textContent = arrayShopInfo[i][1].trim();
+          }
+        }
+      });
+
+      request.open("get", csvFilePath);
+      request.send();
+
+      request = new XMLHttpRequest();
+
+      request.addEventListener('load', (event) => {
+        var arr = event.target.responseText.split('\n');
+        var shopSerchNum = arr[0].trim().split(',').indexOf(shopId);
+
+        if (shopSerchNum != -1)
+        {
+          for(var i = 1; i < arr.length - 1; i++)
+          {
+            //","ごとに配列化
+            var arrAvaliableInfo = arr[i].trim().split(',');
+            arrayAvaliableNum[i - 1] = [arrAvaliableInfo[0], arrAvaliableInfo[shopSerchNum]];
+          }
+
+          for(var i = 0; i < arrayAvaliableNum.length; i++)
+          {
+            document.getElementById(arrayAvaliableNum[i][0] + "_avaliable").textContent = arrayAvaliableNum[i][1];
+            document.getElementById(arrayAvaliableNum[i][0]).setAttribute("max", arrayAvaliableNum[i][1]);
+          }
+        }
+      });
+
+      request.open("get", "https://takaki-1st-re.github.io/1st-re.github.io/shopAvaliableNum.csv");
+      request.send();
+    }
+
+    // ログイン日時取得
+    var dayTime = new Date();
+
+    var year = dayTime.getFullYear();
+    var month = dayTime.getMonth()+1;
+    var day = dayTime.getDate();
+    var hour = dayTime.getHours();
+    var minute = dayTime.getMinutes();
+    var second = dayTime.getSeconds();
+
+    if (hour < 10) hour = '0' + hour;
+　	 if (minute < 10) minute = '0' + minute;
+　	 if (second < 10) second = '0' + second;
+
+    document.getElementById("login_date").textContent = year + "年" + month + "月" + day + "日 " + hour + ":" + minute + ":" + second;
+
+    if (month < 10) month = '0' + month;
+　	 if (day < 10) day = '0' + day;
+
+    loginDate = String(year) + String(month) + String(day) + String(hour) + String(minute) + String(second);
+
+  }
+
+  function updateCreatersOrderInfo(ele) {
+
+    // 数値が受付可能数よりオーバーしていたら強制的に受付可能数にする
+    if (ele.value > Number(ele.max))
+    {
+      ele.value = Number(ele.max);
+    }
+
+    var numCreaters = document.getElementById("num_creaters");
+
+    creatersTotalNum = 0;
+    arrayCreatersInputerId.forEach(function(element){
+        var inputeElements = document.getElementById(element);
+        if (inputeElements != null)
+        {
+          creatersTotalNum = creatersTotalNum + Number(inputeElements.value.replace(/[^0-9]/g, ''));
+        }
+    });
+
+    numCreaters.textContent = creatersTotalNum;
+
+    var calcResultCreatersPrice = creatersTotalNum * 840;
+    priceCreaters.textContent = calcResultCreatersPrice.toLocaleString();
+
+    calcTotalPrice();
+
+  };
+
+
+  function updateNormalSleeveOrderInfo(ele) {
+
+    // 数値が受付可能数よりオーバーしていたら強制的に受付可能数にする
+    if (ele.value > Number(ele.max))
+    {
+      ele.value = Number(ele.max);
+    }
+
+    var numNormalSleeve = document.getElementById("num_normal");
+
+    normalTotalNum = 0;
+    arrayNormalSleeveInputerId.forEach(function(element){
+        var inputeElements = document.getElementById(element);
+        if (inputeElements != null)
+        {
+          normalTotalNum = normalTotalNum + Number(inputeElements.value.replace(/[^0-9]/g, ''));
+        }
+    });
+
+    arraySpecialColotSleeveInputerId.forEach(function(element){
+        var inputeElements = document.getElementById(element);
+        if (inputeElements != null)
+        {
+          normalTotalNum = normalTotalNum + Number(inputeElements.value.replace(/[^0-9]/g, ''));
+        }
+    });
+
+    numNormalSleeve.textContent = normalTotalNum;
+
+    var calcResultNormalSleevePrice = normalTotalNum * 700;
+    priceNormal.textContent = calcResultNormalSleevePrice.toLocaleString();
+
+    calcTotalPrice();
+  };
+
+  function updateOverSleeveOrderInfo(ele) {
+
+    // 数値が受付可能数よりオーバーしていたら強制的に受付可能数にする
+    if (ele.value > Number(ele.max))
+    {
+      ele.value = Number(ele.max);
+    }
+
+    // ファインマット
+    numFineMat.textContent = Number(inputerFimeMat.value.replace(/[^0-9]/g, ''));
+
+    var calcResultFineMatPrice = Number(inputerFimeMat.value.replace(/[^0-9]/g, '')) * 520;
+    priceFineMat.textContent = calcResultFineMatPrice.toLocaleString();
+
+    // 抗菌スリーブ
+    numAntibacterial.textContent = Number(inputerAntibacterial.value.replace(/[^0-9]/g, ''));
+
+    var calcResulAntibacterialPrice = Number(inputerAntibacterial.value.replace(/[^0-9]/g, '')) * 490;
+    priceAntibacterial.textContent = calcResulAntibacterialPrice.toLocaleString();
+
+    // クリアースリーブ
+    numClear.textContent = Number(inputerClear.value.replace(/[^0-9]/g, ''));
+
+    var calcResultClearPrice = Number(inputerClear.value.replace(/[^0-9]/g, '')) * 420;
+    priceClear.textContent = calcResultClearPrice.toLocaleString();
+
+    calcTotalPrice();
+  };
+
+  function updateDeckCaseOrderInfo(ele) {
+
+    // 数値が受付可能数よりオーバーしていたら強制的に受付可能数にする
+    if (ele.value > Number(ele.max))
+    {
+      ele.value = Number(ele.max);
+    }
+
+    // デッキポーチブラック単品
+    numDeckCase.textContent = Number(inputerDeckCase.value.replace(/[^0-9]/g, ''));
+
+    var calcResultDeckCasePrice = Number(inputerDeckCase.value.replace(/[^0-9]/g, '')) * 1500;
+    priceDeckCase.textContent = calcResultDeckCasePrice.toLocaleString();
+
+    // デッキポーチストラップ付
+    numDeckCaseStrap.textContent = Number(inputerDeckCaseStrap.value.replace(/[^0-9]/g, ''));
+
+    var calcResultDeckCaseStrapPrice = Number(inputerDeckCaseStrap.value.replace(/[^0-9]/g, '')) * 2000;
+    priceDeckCaseStrap.textContent = calcResultDeckCaseStrapPrice.toLocaleString();
+
+    calcTotalPrice();
+  };
+
+  function calcTotalPrice() {
+
+    var totalPrice = Number(priceCreaters.textContent.replace(/[^0-9]/g, '')) + Number(priceNormal.textContent.replace(/[^0-9]/g, '')) + Number(priceFineMat.textContent.replace(/[^0-9]/g, ''))
+                   + Number(priceAntibacterial.textContent.replace(/[^0-9]/g, '')) + Number(priceClear.textContent.replace(/[^0-9]/g, '')) + Number(priceDeckCase.textContent.replace(/[^0-9]/g, ''))
+                   + Number(priceDeckCaseStrap.textContent.replace(/[^0-9]/g, ''));
+    priceTotal.textContent = totalPrice;
+
+  }
+
+  function resetAllOrderInfo() {
+
+    // クリエイターズの注文情報をリセット
+    var numCreaters = document.getElementById("num_creaters");
+
+    creatersTotalNum = 0;
+    arrayCreatersInputerId.forEach(function(element){
+        var inputeElements = document.getElementById(element);
+        if (inputeElements != null)
+        {
+          inputeElements.value = "";
+        }
+    });
+
+    numCreaters.textContent = creatersTotalNum;
+    priceCreaters.textContent = 0;
+
+    // 通常スリーブと限定カラーの注文情報をリセット
+    var numNormalSleeve = document.getElementById("num_normal");
+
+    normalTotalNum = 0;
+    arrayNormalSleeveInputerId.forEach(function(element){
+        var inputeElements = document.getElementById(element);
+        if (inputeElements != null)
+        {
+          inputeElements.value = "";
+        }
+    });
+
+    arraySpecialColotSleeveInputerId.forEach(function(element){
+        var inputeElements = document.getElementById(element);
+        if (inputeElements != null)
+        {
+          inputeElements.value = "";
+        }
+    });
+
+    numNormalSleeve.textContent = normalTotalNum;
+
+    priceNormal.textContent = 0;
+
+    // ファインマットの注文情報をリセット
+    numFineMat.textContent = 0;
+    priceFineMat.textContent = 0;
+    inputerFimeMat.value = "";
+
+    // 抗菌スリーブの注文情報をリセット
+    numAntibacterial.textContent = 0;
+    priceAntibacterial.textContent = 0;
+    inputerAntibacterial.value = "";
+
+    // クリアースリーブの注文情報をリセット
+    numClear.textContent = 0;
+    priceClear.textContent = 0;
+    inputerClear.value = "";
+
+    // デッキポーチの注文情報をリセット
+    numDeckCase.textContent = 0;
+    priceDeckCase.textContent = 0;
+    inputerDeckCase.value = "";
+    numDeckCaseStrap.textContent = 0;
+    priceDeckCaseStrap.textContent = 0;
+    inputerDeckCaseStrap.value = "";
+
+    // 合計金額の情報をリセット
+    priceTotal.textContent = 0;
+
+  }
+
+  function cancelButtonEvent() {
+
+    location.replace("https://takaki-1st-re.github.io/1st-re.github.io/grats_site_login.html");
+  }
+
+  function transitionOrderConfirm() {
+
+    var strOrderInfo = "[";
+
+    arrayCreatersInputerId.forEach(function(element){
+        var creatersInputerElements = document.getElementById(element);
+        if (Number(creatersInputerElements.value.replace(/[^0-9]/g, '')) != 0)
+        {
+          strOrderInfo = strOrderInfo + "[" + element + "," + creatersInputerElements.value + "]";
+        }
+    });
+
+    arraySpecialColotSleeveInputerId.forEach(function(element){
+        var normalInputeElements = document.getElementById(element);
+        if (Number(normalInputeElements.value.replace(/[^0-9]/g, '')) != 0)
+        {
+          strOrderInfo = strOrderInfo + "[" + element + "," + normalInputeElements.value + "]";
+        }
+    });
+
+    arrayNormalSleeveInputerId.forEach(function(element){
+        var normalInputeElements = document.getElementById(element);
+        if (Number(normalInputeElements.value.replace(/[^0-9]/g, '')) != 0)
+        {
+          strOrderInfo = strOrderInfo + "[" + element + "," + normalInputeElements.value + "]";
+        }
+    });
+
+    if (Number(inputerFimeMat.value.replace(/[^0-9]/g, '')) != 0)
+    {
+      strOrderInfo = strOrderInfo + "[order_fine_mat," + inputerFimeMat.value + "]";
+    }
+
+    if (Number(inputerAntibacterial.value.replace(/[^0-9]/g, '')) != 0)
+    {
+      strOrderInfo = strOrderInfo + "[order_antibacterial," + inputerAntibacterial.value + "]";
+    }
+
+    if (Number(inputerClear.value.replace(/[^0-9]/g, '')) != 0)
+    {
+      strOrderInfo = strOrderInfo + "[order_clear," + inputerClear.value + "]";
+    }
+
+    if (Number(inputerDeckCase.value.replace(/[^0-9]/g, '')) != 0)
+    {
+      strOrderInfo = strOrderInfo + "[order_deck_case," + inputerDeckCase.value + "]";
+    }
+
+    if (Number(inputerDeckCaseStrap.value.replace(/[^0-9]/g, '')) != 0)
+    {
+      strOrderInfo = strOrderInfo + "[order_deck_case_strap," + inputerDeckCaseStrap.value + "]";
+    }
+
+    strOrderInfo = strOrderInfo + "]";
+
+    location.href = "https://takaki-1st-re.github.io/1st-re.github.io/grats_site_confirm.html" + "?id=" + shopId + "&order=" + strOrderInfo + "&date=" + loginDate;
+
+  }
+
+  constractor();
+  document.getElementById("order_rakuentokyo").click();
+
+  </script>
+</html>

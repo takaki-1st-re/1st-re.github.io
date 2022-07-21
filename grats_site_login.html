@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GRATS_CardShopDedicatedSalesSite</title>
+    <link href="https://takaki-1st-re.github.io/1st-re.github.io/style_login.css" rel="stylesheet" type="text/css">
+  </head>
+  <div class="text-center">
+    <h1>GRATS!取り扱い店舗専用注文ページ</h1>
+  </div>
+  <div class="l_parent">
+    <table border="0">
+      <tr>
+        <td align="right"><b> 店舗ID：</b></td>
+        <td><input type="text" id="text_loginId" size="30" maxlength="30"></td>
+      </tr>
+      <tr>
+        <td align="right"><b> パスワード：</b></td>
+        <td><input type="password" id="text_password" size="30" maxlength="20"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="button" value="ログイン" onclick="processLogin()">
+          <input type="button" value="リセット" onclick="resetInputInfo()">
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="text-center">
+    <h3 id="error_info"></h3>
+    <div id="color_list"></div>
+    <!--
+    <h3>※※※※※※※※※※※※※※※お知らせ※※※※※※※※※※※※※※※</h3>
+    <h2>新作・再販スリーブの発送は〇月〇日を予定しております。</h2>
+    <h2>新作スリーブの販売は〇月〇日からお願いいたします。</h2>
+    <h3>※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※</h3>
+    -->
+  </div>
+  <bottom>
+    <img src="https://takaki-1st-re.github.io/1st-re.github.io/logo.png" alt="gratsLogoImage">
+  </bottom>
+  <script>
+
+    var errorInfo = document.getElementById("error_info");
+    var output_svg = document.getElementById('color_list');
+
+    var loginInfoArray = [];
+
+    function getCSV(){
+
+      dataPath = "https://takaki-1st-re.github.io/1st-re.github.io/ShopPasswordInfo.csv";
+
+      var request = new XMLHttpRequest();
+
+      request.addEventListener('load', (event) => {
+        var arr = event.target.responseText.split('\n');
+
+        for(var i = 0; i < arr.length - 1; i++)
+        {
+          //","ごとに配列化
+          loginInfoArray[i] = arr[i].split(',');
+        }
+      });
+
+      request.open("get", dataPath, true);
+      request.send();
+    }
+
+    function processLogin(){
+
+      var inputerShopId = document.getElementById("text_loginId");
+      var inputerPassword = document.getElementById("text_password");
+      var shopIdValue = inputerShopId.value;
+      var passwordValue = inputerPassword.value;
+
+      var isScucessLogin = false;
+      var isOrderChangePage = false;
+      var isMultiPage = false;
+
+      for (var i = 0; i < loginInfoArray.length; i++)
+      {
+        if (loginInfoArray[i][0].trim() == shopIdValue)
+        {
+          if (loginInfoArray[i][1].trim() == passwordValue)
+          {
+            errorInfo.textContent = "専用ページへ移動いたします。少々お待ちください。";
+            isScucessLogin = true;
+            if (loginInfoArray[i][2].trim() == "1")
+            {
+              isOrderChangePage = true;
+            }
+            else if(loginInfoArray[i][2].trim() == "2")
+            {
+              isMultiPage = true;
+            }
+          }
+          else
+          {
+            errorInfo.textContent = "入力されたパスワードが異なっています。再入力のほど、よろしくお願いいたします。";
+            return;
+          }
+        }
+      }
+
+      if (isOrderChangePage)
+      {
+        location.replace("https://takaki-1st-re.github.io/1st-re.github.io/grats_site_batoloco.html" + "?id=" + shopIdValue);
+      }
+      else if(isMultiPage)
+      {
+        location.replace("https://takaki-1st-re.github.io/1st-re.github.io/grats_site_trans_multi.html" + "?id=" + shopIdValue);
+      }
+      else if (isScucessLogin)
+      {
+        location.replace("https://takaki-1st-re.github.io/1st-re.github.io/grats_site_trans.html" + "?id=" + shopIdValue);
+      }
+      else
+      {
+        errorInfo.textContent = "入力されたショップIDは存在しません。再入力のほど、よろしくお願いいたします。";
+      }
+
+    }
+
+    function resetInputInfo(){
+
+      var inputerShopId = document.getElementById("text_loginId");
+      var inputerPassword = document.getElementById("text_password");
+      inputerShopId.value = "";
+      inputerPassword.value = "";
+    }
+
+
+    getCSV();
+  </script>
+</html>

@@ -33,7 +33,7 @@ h1 {
 
 .fixed01{
   position: sticky;
-  width: 2000;
+  width: 2100;
   top: 0;
   background-color: white;
   z-index: 1;
@@ -45,6 +45,18 @@ h1 {
     height: 100%;
     border: 1px solid #ccc;
   }
+}
+
+.fixed_child {
+  display: flex;
+  width: 1500px;
+}
+
+.fixed_grandchild {
+  width: 650px;
+  right:140px;
+  top:120px;
+  background-color: white;
 }
 
 .right_top1 {
@@ -67,6 +79,14 @@ h1 {
   display: flex;
 }
 
+.dialog {
+  display: none;
+  position: fixed;
+  top: 50%;
+  height: auto;
+  overflow: hidden;
+  z-index: 9999;
+}
 
 div.sample {
   width:200px; height:100px;
@@ -76,11 +96,11 @@ div.sample {
 }
 
 .parent{
-  height: 7000;
+  height: 2500;
 }
 
 .l_parent{
-    width: 2000;
+    width: 2100;
     height: auto;
 }
 
