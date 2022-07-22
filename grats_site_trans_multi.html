@@ -2820,7 +2820,7 @@
         }
       });
 
-      request.open("get", csvFilePath);
+      request.open("get", csvFilePath, false);
       request.send();
 
       request = new XMLHttpRequest();
@@ -2856,7 +2856,7 @@
         }
       });
 
-      request.open("get", "https://takaki-1st-re.github.io/1st-re.github.io/shopAvaliableNum.csv");
+      request.open("get", "https://takaki-1st-re.github.io/1st-re.github.io/shopAvaliableNum.csv", false);
       request.send();
 
       request = new XMLHttpRequest();
@@ -2912,7 +2912,7 @@
         }
 
       });
-      request.open("get", "https://takaki-1st-re.github.io/1st-re.github.io/MultiShopName.csv");
+      request.open("get", "https://takaki-1st-re.github.io/1st-re.github.io/MultiShopName.csv", false);
       request.send();
     }
 
@@ -3384,7 +3384,140 @@
     calcTotalPrice();
   }
 
+  function checkExistenceBeforeOrderInfo()
+  {
+    let url = new URL(window.location.href);
+    let urlParams = url.searchParams;
+
+    var beforeOrderInfo = urlParams.get('bforder');
+
+    if(beforeOrderInfo != null)
+    {
+      beforeOrderInfo = beforeOrderInfo.slice(1).slice(0, -1);
+      var arrayBeforeOrderInfo = []
+      var arrOrder = beforeOrderInfo.split(']');
+
+      for(var i = 0; i < arrOrder.length - 1; i++)
+      {
+        var element = arrOrder[i].slice(1);
+        arrayBeforeOrderInfo[i] = element.split(',');
+      }
+
+      for(var i = 1; i < arrayMultiShopOrderInfo.length; i++)
+      {
+        for(var j = 1; j < arrayBeforeOrderInfo.length; j++)
+        {
+          if(arrayMultiShopOrderInfo[i][0].trim() == arrayBeforeOrderInfo[j][0].trim())
+          {
+            for(var k = 1; k < arrayBeforeOrderInfo[j].length; k++)
+            {
+              arrayMultiShopOrderInfo[i][k] = Number(arrayBeforeOrderInfo[j][k]);
+            }
+          }
+        }
+      }
+
+      document.getElementById("radio_1").checked = true;
+
+      for (var i = 2; i < 6; i++)
+      {
+        var loopRadioName = "radio_" + i;
+        document.getElementById(loopRadioName).checked = false;
+      }
+
+
+      for (var i = 0; i < arrayAvaliableNum.length; i++)
+      {
+        document.getElementById(arrayAvaliableNum[i][0]).value = arrayMultiShopOrderInfo[i + 1][checkRadioButtonNum];
+      }
+
+      document.getElementById("current_input_shop").textContent = "現在の入力店舗：" + arrayMultiShopName[checkRadioButtonNum];
+
+      // クリエイターズスリーブ
+      creatersTotalNum = 0;
+      arrayCreatersInputerId.forEach(function(element){
+          var inputeElements = document.getElementById(element);
+          if (inputeElements != null)
+          {
+            creatersTotalNum = creatersTotalNum + Number(inputeElements.value.replace(/[^0-9]/g, ''));
+          }
+      });
+
+      document.getElementById("num_creaters").textContent = creatersTotalNum;
+
+      var calcResultCreatersPrice = creatersTotalNum * 840;
+      priceCreaters.textContent = calcResultCreatersPrice.toLocaleString();
+
+      // 通常スリーブ
+      normalTotalNum = 0;
+      arrayNormalSleeveInputerId.forEach(function(element){
+          var inputeElements = document.getElementById(element);
+          if (inputeElements != null)
+          {
+            normalTotalNum = normalTotalNum + Number(inputeElements.value.replace(/[^0-9]/g, ''));
+          }
+      });
+
+      arraySpecialColotSleeveInputerId.forEach(function(element){
+          var inputeElements = document.getElementById(element);
+          if (inputeElements != null)
+          {
+            normalTotalNum = normalTotalNum + Number(inputeElements.value.replace(/[^0-9]/g, ''));
+          }
+      });
+
+      document.getElementById("num_normal").textContent = normalTotalNum;
+
+      var calcResultNormalSleevePrice = normalTotalNum * 700;
+      priceNormal.textContent = calcResultNormalSleevePrice.toLocaleString();
+
+      // ファインマット
+      numFineMat.textContent = Number(inputerFimeMat.value.replace(/[^0-9]/g, ''));
+
+      var calcResultFineMatPrice = Number(inputerFimeMat.value.replace(/[^0-9]/g, '')) * 520;
+      priceFineMat.textContent = calcResultFineMatPrice.toLocaleString();
+
+      // 抗菌スリーブ
+      numAntibacterial.textContent = Number(inputerAntibacterial.value.replace(/[^0-9]/g, ''));
+
+      var calcResulAntibacterialPrice = Number(inputerAntibacterial.value.replace(/[^0-9]/g, '')) * 490;
+      priceAntibacterial.textContent = calcResulAntibacterialPrice.toLocaleString();
+
+      // クリアースリーブ
+      numClear.textContent = Number(inputerClear.value.replace(/[^0-9]/g, ''));
+
+      var calcResultClearPrice = Number(inputerClear.value.replace(/[^0-9]/g, '')) * 420;
+      priceClear.textContent = calcResultClearPrice.toLocaleString();
+
+      // デッキポーチブラック単品
+      numDeckCase.textContent = Number(inputerDeckCase.value.replace(/[^0-9]/g, ''));
+
+      var calcResultDeckCasePrice = Number(inputerDeckCase.value.replace(/[^0-9]/g, '')) * 1500;
+      priceDeckCase.textContent = calcResultDeckCasePrice.toLocaleString();
+
+      // デッキポーチストラップ付
+      numDeckCaseStrap.textContent = Number(inputerDeckCaseStrap.value.replace(/[^0-9]/g, ''));
+
+      var calcResultDeckCaseStrapPrice = Number(inputerDeckCaseStrap.value.replace(/[^0-9]/g, '')) * 2000;
+      priceDeckCaseStrap.textContent = calcResultDeckCaseStrapPrice.toLocaleString();
+
+      calcTotalPrice();
+
+      for (var i = 1; i < arrayMultiShopOrderInfo.length; i++)
+      {
+        var currentTargetGoodsOrderNum = 0;
+        for (var j = 1; j < arrayMultiShopOrderInfo[i].length; j++)
+        {
+          currentTargetGoodsOrderNum = currentTargetGoodsOrderNum + arrayMultiShopOrderInfo[i][j];
+        }
+        document.getElementById(arrayMultiShopOrderInfo[i][0] + "_remaining").textContent = Number(document.getElementById(arrayMultiShopOrderInfo[i][0] + "_avaliable").textContent) - currentTargetGoodsOrderNum;
+      }
+
+    }
+  }
+
   constractor();
+  checkExistenceBeforeOrderInfo();
 
   </script>
 </html>

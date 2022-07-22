@@ -2630,8 +2630,6 @@
       ele.value = Number(ele.max);
     }
 
-    var numNormalSleeve = document.getElementById("num_normal");
-
     normalTotalNum = 0;
     arrayNormalSleeveInputerId.forEach(function(element){
         var inputeElements = document.getElementById(element);
@@ -2649,7 +2647,7 @@
         }
     });
 
-    numNormalSleeve.textContent = normalTotalNum;
+    numNormal.textContent = normalTotalNum;
 
     var calcResultNormalSleevePrice = normalTotalNum * 700;
     priceNormal.textContent = calcResultNormalSleevePrice.toLocaleString();
@@ -2736,7 +2734,6 @@
     priceCreaters.textContent = 0;
 
     // 通常スリーブと限定カラーの注文情報をリセット
-    var numNormalSleeve = document.getElementById("num_normal");
 
     normalTotalNum = 0;
     arrayNormalSleeveInputerId.forEach(function(element){
@@ -2755,7 +2752,7 @@
         }
     });
 
-    numNormalSleeve.textContent = normalTotalNum;
+    numNormal.textContent = normalTotalNum;
 
     priceNormal.textContent = 0;
 
@@ -2851,8 +2848,103 @@
 
   }
 
+  function checkExistenceBeforeOrderInfo()
+  {
+    let url = new URL(window.location.href);
+    let urlParams = url.searchParams;
+
+    var beforeOrderInfo = urlParams.get('bforder');
+
+    if(beforeOrderInfo != null)
+    {
+      beforeOrderInfo = beforeOrderInfo.slice(1).slice(0, -1);
+      var arrayBeforeOrderInfo = []
+      var arrOrder = beforeOrderInfo.split(']');
+
+      for(var i = 0; i < arrOrder.length - 1; i++)
+      {
+        var element = arrOrder[i].slice(1);
+        arrayBeforeOrderInfo[i] = element.split(',');
+      }
+
+      for(var i = 0; i < arrayBeforeOrderInfo.length; i++)
+      {
+        document.getElementById(arrayBeforeOrderInfo[i][0]).value = arrayBeforeOrderInfo[i][1];
+      }
+
+      creatersTotalNum = 0;
+      arrayCreatersInputerId.forEach(function(element){
+          var inputeElements = document.getElementById(element);
+          if (inputeElements != null)
+          {
+            creatersTotalNum = creatersTotalNum + Number(inputeElements.value.replace(/[^0-9]/g, ''));
+          }
+      });
+
+      numCreaters.textContent = creatersTotalNum;
+
+      var calcResultCreatersPrice = creatersTotalNum * 840;
+      priceCreaters.textContent = calcResultCreatersPrice.toLocaleString();
+
+      normalTotalNum = 0;
+      arrayNormalSleeveInputerId.forEach(function(element){
+          var inputeElements = document.getElementById(element);
+          if (inputeElements != null)
+          {
+            normalTotalNum = normalTotalNum + Number(inputeElements.value.replace(/[^0-9]/g, ''));
+          }
+      });
+
+      arraySpecialColotSleeveInputerId.forEach(function(element){
+          var inputeElements = document.getElementById(element);
+          if (inputeElements != null)
+          {
+            normalTotalNum = normalTotalNum + Number(inputeElements.value.replace(/[^0-9]/g, ''));
+          }
+      });
+
+      numNormal.textContent = normalTotalNum;
+
+      var calcResultNormalSleevePrice = normalTotalNum * 700;
+      priceNormal.textContent = calcResultNormalSleevePrice.toLocaleString();
+
+      // ファインマット
+      numFineMat.textContent = Number(inputerFimeMat.value.replace(/[^0-9]/g, ''));
+
+      var calcResultFineMatPrice = Number(inputerFimeMat.value.replace(/[^0-9]/g, '')) * 520;
+      priceFineMat.textContent = calcResultFineMatPrice.toLocaleString();
+
+      // 抗菌スリーブ
+      numAntibacterial.textContent = Number(inputerAntibacterial.value.replace(/[^0-9]/g, ''));
+
+      var calcResulAntibacterialPrice = Number(inputerAntibacterial.value.replace(/[^0-9]/g, '')) * 490;
+      priceAntibacterial.textContent = calcResulAntibacterialPrice.toLocaleString();
+
+      // クリアースリーブ
+      numClear.textContent = Number(inputerClear.value.replace(/[^0-9]/g, ''));
+
+      var calcResultClearPrice = Number(inputerClear.value.replace(/[^0-9]/g, '')) * 420;
+      priceClear.textContent = calcResultClearPrice.toLocaleString();
+
+      // デッキポーチブラック単品
+      numDeckCase.textContent = Number(inputerDeckCase.value.replace(/[^0-9]/g, ''));
+
+      var calcResultDeckCasePrice = Number(inputerDeckCase.value.replace(/[^0-9]/g, '')) * 1500;
+      priceDeckCase.textContent = calcResultDeckCasePrice.toLocaleString();
+
+      // デッキポーチストラップ付
+      numDeckCaseStrap.textContent = Number(inputerDeckCaseStrap.value.replace(/[^0-9]/g, ''));
+
+      var calcResultDeckCaseStrapPrice = Number(inputerDeckCaseStrap.value.replace(/[^0-9]/g, '')) * 2000;
+      priceDeckCaseStrap.textContent = calcResultDeckCaseStrapPrice.toLocaleString();
+
+      calcTotalPrice();
+
+    }
+  }
+
   constractor();
-  document.getElementById("order_rakuentokyo").click();
+  checkExistenceBeforeOrderInfo();
 
   </script>
 </html>
