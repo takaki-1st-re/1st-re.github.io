@@ -32,7 +32,7 @@
         <td></td>
         <td>
           <input type="button" value="発注" onclick="procOrderByOwner()">
-          <input type="button" value="「注文内容入力画面」に戻る" onclick="history.back()">
+          <input type="button" value="「注文内容入力画面」に戻る" onclick="backBeforeLocation()">
           <!--<input type="button" value="閉じる" onclick="closeThisWindow()">-->
         </td>
       </tr>
@@ -218,6 +218,10 @@
         arrayElement = ["", "", "", "", ""];
         arrayGoodsOrdersInfo.push(arrayElement);
         var postage = 1000; // 個数が18個以下なら送料は600円(To do)
+        if(totalGoodsNum < 18)
+        {
+          postage = 600;
+        }
         arrayElement = ["送料", "", "", "", String(postage) + " 円"];
         arrayGoodsOrdersInfo.push(arrayElement);
         arrayElement = ["", "", "", "", ""];
@@ -375,9 +379,12 @@
       }
     }
 
-    function callbackFunction()
+    function backBeforeLocation()
     {
-
+      let url = new URL(window.location.href);
+      let urlParams = url.searchParams;
+      var orderInfo = urlParams.get('order');
+      location.replace("https://takaki-1st-re.github.io/1st-re.github.io/grats_site_trans_multi.html" + "?id=" + loginShop + "&bforder=" + orderInfo);
     }
 
     function radioSwitchEvent(ele) {

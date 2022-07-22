@@ -2589,6 +2589,8 @@
 
     loginDate = String(year) + String(month) + String(day) + String(hour) + String(minute) + String(second);
 
+
+
   }
 
   function updateCreatersOrderInfo(ele) {
@@ -2845,7 +2847,7 @@
 
     strOrderInfo = strOrderInfo + "]";
 
-    location.href = "https://takaki-1st-re.github.io/1st-re.github.io/grats_site_confirm.html" + "?id=" + shopId + "&order=" + strOrderInfo + "&date=" + loginDate;
+    location.replace("https://takaki-1st-re.github.io/1st-re.github.io/grats_site_confirm.html" + "?id=" + shopId + "&order=" + strOrderInfo + "&date=" + loginDate);
 
   }
 
